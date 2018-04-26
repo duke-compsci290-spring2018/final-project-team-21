@@ -15,6 +15,7 @@ import login from './components/login.vue'
 import signup from './components/signup.vue'
 import profile from './components/profile.vue'
 import home from './components/home.vue'
+import charity from './components/charity.vue'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -38,7 +39,9 @@ const routes = [
     { path:'/login', component:login },
     { path:'/signup', component:signup },
     { path:'/profile', component:profile },
-    { path:'/home', component:home }
+    { path:'/home', component:home },
+    { path:'/charity/:charName', component:charity }
+
 ]
 
 const router = new VueRouter({

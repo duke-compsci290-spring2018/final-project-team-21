@@ -10,6 +10,8 @@
     import Header from "./components/Header.vue";
     import profile from "./components/profile.vue";
     import home from "./components/home.vue";
+    import axios from "axios";
+    
 export default {
   name: 'app',
     
