@@ -11,6 +11,7 @@
 
 <script>
 import firebase from 'firebase';
+import { dataRef } from '../database.js';
 
 export default {
     name: 'login',
@@ -18,14 +19,24 @@ export default {
         return {
             email: '',
             username: '',
-            password: ''
+            password: '',
         }
+    },
+    firebase:{
+        data: dataRef
     },
     methods: {
         logIn(){
             firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
                 (user)=>{
                     this.$router.replace('home');
+                    this.$store.state.currentUser = this.username;
+                    this.$store.state.UserloggedIn = true;
+                    for(var i=0;i<this.data.length;i++){
+                        if(this.data[i].name===this.username){
+                            this.$store.state.userImgUrl = this.data[i].userImgUrl;
+                        }
+                    }
                 },
                 (err)=>{
                     alert('Failed to sign in. '+err.message);

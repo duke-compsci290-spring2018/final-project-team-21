@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
-import firebase from 'firebase'
+import {store} from './store.js'
+import VueFire from 'vuefire'
 
 
 //import styling
@@ -19,29 +20,19 @@ import charity from './components/charity.vue'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
-
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyCer-ja4FYfPjI2xtauwcedyZ5GucqzDoc",
-    authDomain: "charitability-94e58.firebaseapp.com",
-    databaseURL: "https://charitability-94e58.firebaseio.com",
-    projectId: "charitability-94e58",
-    storageBucket: "charitability-94e58.appspot.com",
-    messagingSenderId: "319350461000"
-};
-firebase.initializeApp(config);
+// connect Firebase to Vue
+Vue.use(VueFire);
 
 // turn off the console note about switching to production mode
 Vue.config.productionTip = false
 
 
 const routes = [
-    { path:'/login', component:login },
-    { path:'/signup', component:signup },
+    { path:'/login', component:login, props: true},
+    { path:'/signup', component:signup, props:true },
     { path:'/profile', component:profile },
     { path:'/home', component:home },
     { path:'/charity/:charName', component:charity }
-
 ]
 
 const router = new VueRouter({
@@ -51,6 +42,7 @@ const router = new VueRouter({
 
 new Vue({
     el: '#app',
+    store,
     router,
     render: h => h(App)
 })

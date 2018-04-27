@@ -11,6 +11,7 @@
 
 <script>
 import firebase from 'firebase';
+import { dataRef, storageRef } from '../database.js';
     
 export default {
     name: 'signup',
@@ -25,7 +26,13 @@ export default {
         signUp(){
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                 (user)=>{
-                    this.$router.replace('home')
+                    this.$router.replace('home');
+                    this.$store.state.UserloggedIn = true;
+                    this.$store.state.currentUser = this.username;
+                    dataRef.push({
+                        name:this.username,
+                        userImgUrl: "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+                    });
                 },
                 (err)=>{
                     alert('Failed to create account. '+err.message)

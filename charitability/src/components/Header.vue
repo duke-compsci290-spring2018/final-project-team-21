@@ -5,12 +5,12 @@
         <div id="leftnav">
             <router-link to='/home'><a id="home">Home</a></router-link>
             <a id="charities">Charities</a>
-            <a id="progress">Progress</a>
+            <a id="progress" v-if="loggedIn">Progress</a>
         </div>
         <div id="rightnav">
-            <router-link to='/profile'><a id="profile"><i class="fa fa-user"></i> Profile</a></router-link>
-            <router-link to='/login'><a id="login"><i class="fa fa-sign-in"></i> Login</a></router-link>
-            <a id="logout" @click="logout"><i class="fa fa-sign-out"></i> Logout</a>
+            <router-link to='/profile'><a id="profile" v-if="loggedIn"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
+            <router-link to="/login"><a id="login" v-if="!loggedIn"><i class="fa fa-sign-in"></i> Login </a></router-link>
+            <a id="logout" @click="logout" v-if="loggedIn"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
     </div>
 </div>
@@ -21,7 +21,14 @@
     
     export default {
         name: "Header",
-        
+        computed:{
+           currentUser(){
+               return this.$store.state.currentUser;
+           },
+            loggedIn(){
+                return this.$store.state.UserloggedIn;
+            }
+        },
         data () {
             return {
             }
@@ -30,19 +37,16 @@
             logout(){
                 firebase.auth().signOut().then(()=>{this.$router.replace('home')
                 })
+                this.$store.state.UserloggedIn = false;
             }
-        },
-        props:[
-            "loggedIn"
-        ]
-            
+        }   
     }
 </script>
 
 <style scoped>
     h1{
         font-size: 50px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     #home{
         padding-top:10px;
