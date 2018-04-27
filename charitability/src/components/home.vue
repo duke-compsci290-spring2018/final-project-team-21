@@ -1,6 +1,8 @@
 <template>
     <div id="home">
+        <div> <input type="text" v-model="search" placeholder="Enter a name or related word"></div>
         <h3 id="title">Charities</h3>
+
         <div id="pageddata">
                <ul>
                   <li v-for="char in pagedData">
@@ -39,13 +41,14 @@ import axios from "axios";
                 charData: [],
                 pageNumber: 0,
                 pageSize: 10,
-                visiblePages: 5
+                visiblePages: 5,
+                search: ''
             }
         },
         computed: {
             //compute the number of pages
             pageCount(){
-                let l = this.charData.length,
+                let l = this.filteredChar.length,
                 s = this.pageSize;
                 return Math.floor(l/s);
             },
@@ -53,7 +56,7 @@ import axios from "axios";
             pagedData(){
                 const start = this.pageNumber * this.pageSize,
                 end = start + this.pageSize;
-                return this.charData.slice(start, end);
+                return this.filteredChar.slice(start, end);
             },
             pageRange () {
                 let start = this.pageNumber - this.visiblePages / 2 <= 0
@@ -67,6 +70,14 @@ import axios from "axios";
                     range.push(start + i-1)
                 }
                 return range
+            },
+            filteredChar () {
+                return this.charData.filter((char) => { 
+                    if (char.charityName.toLowerCase().match(this.search.toLowerCase())) {return true}
+                    if (char.mission.toLowerCase().match(this.search.toLowerCase())) {return true}
+                    else {return false}
+                        
+                });
             }
         },
         methods: {
