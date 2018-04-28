@@ -6,43 +6,47 @@
 </template>
 
 <script>
-    
+    import firebase from "firebase";
     import Header from "./components/Header.vue";
     import profile from "./components/profile.vue";
     import home from "./components/home.vue";
     import login from "./components/login.vue";
     import {dataRef} from "./database.js";
-    
+    import {store} from './store.js'
+
     
 export default {
-  name: 'app',
-    
-  computed:{
-    currentUser(){
-         return this.$store.state.currentUser;
+    name: 'app', 
+    computed:{
+        currentUser(){
+            return this.$store.state.currentUser;
+        },
+        loggedIn(){
+            return this.$store.state.UserloggedIn;
+        }
     },
-    loggedIn(){
-        return this.$store.state.UserloggedIn;
-    }
-  },
-    
-  firebase: {
-      data: dataRef
-  },
-    
-  data () {
-    return {
-    }
-  },
-    
+    firebase: {
+        data: dataRef
+    },
+    data () {
+        return {
+        }
+    },
     components:{
         Header,
         profile,
         home,
         login
+    },
+    created () {
+        firebase.auth().onAuthStateChanged((firebaseUser) => {
+          if (firebaseUser) {
+              this.$store.dispatch('autoSignIn',firebaseUser)
+          }
+        })
     }
+};
 
-}
 </script>
 
 <style scoped>

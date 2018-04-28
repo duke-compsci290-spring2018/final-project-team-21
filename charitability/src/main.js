@@ -4,7 +4,7 @@ import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import {store} from './store.js'
 import VueFire from 'vuefire'
-
+import firebase from 'firebase'
 
 //import styling
 import 'bootstrap/dist/css/bootstrap.css'

@@ -1,6 +1,8 @@
 <template>
     <div id="home">
-        <div> <input type="text" v-model="search" placeholder="Enter a name or related word"></div>
+        <div> 
+            <input type="text" v-model="search" placeholder="Enter a name or related word">
+        </div>
         <h3 id="title">Charities</h3>
 
         <div id="pageddata">

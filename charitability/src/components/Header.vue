@@ -5,12 +5,12 @@
         <div id="leftnav">
             <router-link to='/home'><a id="home">Home</a></router-link>
             <a id="charities">Charities</a>
-            <a id="progress" v-if="loggedIn">Progress</a>
+            <a id="progress" v-if="currentUser">Progress</a>
         </div>
         <div id="rightnav">
-            <router-link to='/profile'><a id="profile" v-if="loggedIn"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
-            <router-link to="/login"><a id="login" v-if="!loggedIn"><i class="fa fa-sign-in"></i> Login </a></router-link>
-            <a id="logout" @click="logout" v-if="loggedIn"><i class="fa fa-sign-out"></i> Logout</a>
+            <router-link to='/profile'><a id="profile" v-if="currentUser"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
+            <router-link to="/login"><a id="login" v-if="!currentUser"><i class="fa fa-sign-in"></i> Login </a></router-link>
+            <a id="logout" @click="logout" v-if="currentUser"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
     </div>
 </div>
