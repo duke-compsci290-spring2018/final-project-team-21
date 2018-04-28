@@ -17,6 +17,7 @@ import signup from './components/signup.vue'
 import profile from './components/profile.vue'
 import home from './components/home.vue'
 import charity from './components/charity.vue'
+import progress from './components/progress.vue'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -28,11 +29,13 @@ Vue.config.productionTip = false
 
 
 const routes = [
+    { path:'/', component:home, props: true},
     { path:'/login', component:login, props: true},
     { path:'/signup', component:signup, props:true },
     { path:'/profile', component:profile },
+    { path:'/charity', component:charity },
     { path:'/home', component:home },
-    { path:'/charity/:charName', component:charity }
+    { path:'/progress', component:progress }
 ]
 
 const router = new VueRouter({

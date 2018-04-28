@@ -7,18 +7,11 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state:{
         currentUser:'',
-        UserloggedIn: false,
-        userImgUrl: ""
+        userImgUrl: ''
     },
     mutations: {
         setUser(state, payload) {
             state.currentUser = payload.email; 
-            if (state.currentUser){
-                state.UserLoggedIn=true;
-            }
-            else {
-                state.UserLoggedIn=false;
-            }
         },
     },
     actions: {

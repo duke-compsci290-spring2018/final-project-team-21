@@ -2,7 +2,6 @@
         <div class="signup">
             <h3>Sign Up</h3>
             <input type="text" v-model="email" placeholder="Email"><br>
-            <input type="text" v-model="username" placeholder="Username"><br>
             <input type="password" v-model="password" placeholder="Password"><br>
             <button @click="signUp">Sign Up</button><br>
             <span>Have an account? <router-link to="/login">Login</router-link></span>
@@ -18,7 +17,6 @@ export default {
     data() {
         return {
             email: '',
-            username: '',
             password: ''
         }
     },
@@ -27,10 +25,10 @@ export default {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                 (user)=>{
                     this.$router.replace('home');
-                    this.$store.state.UserloggedIn = true;
-                    this.$store.state.currentUser = this.username;
+                    this.$store.state.currentUser = this.email;
                     dataRef.push({
-                        name:this.username,
+                        email: this.email,
+                        password: this.password,
                         userImgUrl: "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
                     });
                 },

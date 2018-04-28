@@ -4,8 +4,8 @@
     <div id="navbar">
         <div id="leftnav">
             <router-link to='/home'><a id="home">Home</a></router-link>
-            <a id="charities">Charities</a>
-            <a id="progress" v-if="currentUser">Progress</a>
+            <router-link to='/charity' v-if="currentUser"><a id="charities">Charities</a></router-link>
+            <router-link to='/progress'><a id="progress" v-if="currentUser">Progress</a></router-link>
         </div>
         <div id="rightnav">
             <router-link to='/profile'><a id="profile" v-if="currentUser"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
@@ -118,7 +118,7 @@
         cursor: pointer;
     }
     #navbar {
-        background-color:#eeeec3;
+        background-color:skyblue;
         overflow: hidden;
         padding-top:5px;
         padding-bottom:5px;

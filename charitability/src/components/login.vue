@@ -2,7 +2,6 @@
         <div class="login">
             <h3>Log In</h3>
             <input type="text" v-model="email" placeholder="Email"><br>
-            <input type="text" v-model="username" placeholder="Username"><br>
             <input type="password" v-model="password" placeholder="Password"><br>
             <button @click="logIn">Log In</button><br>
             <span>Don't have an account? <router-link to="/signup">Create One</router-link></span>
@@ -18,8 +17,7 @@ export default {
     data() {
         return {
             email: '',
-            username: '',
-            password: '',
+            password: ''
         }
     },
     firebase:{
@@ -30,10 +28,9 @@ export default {
             firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
                 (user)=>{
                     this.$router.replace('home');
-                    this.$store.state.currentUser = this.username;
-                    this.$store.state.UserloggedIn = true;
+                    this.$store.state.currentUser = this.email;
                     for(var i=0;i<this.data.length;i++){
-                        if(this.data[i].name===this.username){
+                        if(this.data[i].name===this.email){
                             this.$store.state.userImgUrl = this.data[i].userImgUrl;
                         }
                     }

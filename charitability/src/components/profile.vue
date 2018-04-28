@@ -11,14 +11,14 @@
                             <input type="submit" value="Add Image" />
                         </form>
                 <br>
-                <p><b>Change Username:</b></p>
-                <input type="text">
-                <input type="submit">
+                <p><b>Change Email:</b></p>
+                <input v-model="email" type="text">
+                <input @click.prevent="updateEmail" type="submit">
                 <br>
                 <br>
                 <p><b>Change Password:</b></p>
-                <input type="text">
-                <input type="submit">
+                <input v-model="password" type="text">
+                <input @click.prevent="updatePassword" type="submit">
             </div>
             </div>
             <div id="vl">
@@ -45,11 +45,18 @@
 </template>
 
 <script>
+    import firebase from 'firebase'
     import { dataRef, storageRef } from "../database.js";
     export default {
         name: "profile",
         firebase:{
             data: dataRef
+        },
+        data() {
+            return {
+                email: '',
+                password: ''
+            }
         },
         computed:{
            currentUser(){
@@ -79,14 +86,73 @@
             addUserImage:  function(url) {
                 this.$store.state.userImgUrl = url;
                 for(var i=0;i<this.data.length;i++){
-                    if(this.data[i].name===this.currentUser){
+                    if(this.data[i].email===this.currentUser){
                         var user = this.data[i];
                         dataRef.child(user['.key']).update({userImgUrl: this.userImage});
                     }
                 }
                 console.log(this.userImage);
-
-            }
+            },
+            updateEmail(){
+                    var user = firebase.auth().currentUser;
+                    var password = ''
+                    var email = ''
+                    for(var i=0;i<this.data.length;i++){
+                        if(this.data[i].email===this.currentUser){
+                            password=this.data[i].password
+                            email=this.data[i].email
+                        }
+                    }
+                    var credential = firebase.auth.EmailAuthProvider.credential(email, password)
+                    user.reauthenticateWithCredential(credential);
+                
+                    user.updateEmail(this.email).then((data) => {
+                        console.log("email updated")
+                        this.changeEmailInDatabase()
+                    }).catch(function(error) {
+                        alert("Unable to change email. " + error.message)
+                    });
+            },
+            changeEmailInDatabase(){
+                    for(var i=0;i<this.data.length;i++){
+                                    if(this.data[i].email===this.currentUser){
+                                    var currentUser = this.data[i];
+                                    dataRef.child(currentUser['.key']).update({email: this.email});
+                                    this.$store.state.currentUser=this.email;
+                                }   
+                            }
+                    alert('Email changed to '+ this.email)
+                    this.email=""
+                },
+            updatePassword(){
+                    var user = firebase.auth().currentUser;
+                    var password = ''
+                    var email = ''
+                    for(var i=0;i<this.data.length;i++){
+                        if(this.data[i].email===this.currentUser){
+                            password=this.data[i].password
+                            email=this.data[i].email
+                        }
+                    }
+                    var credential = firebase.auth.EmailAuthProvider.credential(email, password)
+                    user.reauthenticateWithCredential(credential);
+                    user.updatePassword(this.password).then((data) => {
+                        console.log("password updated")
+                        this.changePasswordInDatabase()
+                    }).catch(function(error) {
+                        alert("Unable to change password. " + error.message)
+                    });
+            },
+            changePasswordInDatabase() {
+                for(var i=0;i<this.data.length;i++){
+                            if(this.data[i].email===this.currentUser){
+                            var user = this.data[i];
+                            dataRef.child(user['.key']).update({password: this.password});
+                        }
+                        }
+                    alert('Password changed!')
+                    this.password=""
+            } 
         }
     }
 </script>
