@@ -35,9 +35,12 @@
           },
         methods:{
             logout(){
-                firebase.auth().signOut().then(()=>{this.$router.replace('home')
+                firebase.auth().signOut().then(()=>{
+                    
+                    this.$router.replace('home')
                 })
                 this.$store.state.UserloggedIn = false;
+                this.$store.state.currentUser = null;
             }
         }   
     }
