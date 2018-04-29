@@ -19,6 +19,7 @@ import home from './components/home.vue'
 import charity from './components/charity.vue'
 import progress from './components/progress.vue'
 import admin from './components/admin.vue'
+import charityReview from './components/charityReview.vue'
 
 
 Vue.use(VueRouter)
@@ -38,7 +39,8 @@ const routes = [
     { path:'/charity', component:charity },
     { path:'/home', component:home },
     { path:'/progress', component:progress},
-    { path: '/admin', component:admin}
+    { path: '/admin', component:admin},
+    { path: '/charityReview', component:charityReview}
 ]
 
 const router = new VueRouter({

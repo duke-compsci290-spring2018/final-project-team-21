@@ -2,11 +2,12 @@
     <div id="charity">
         <div id="searchArea">
             <div id="filter">
-                Filter by:
+                Category:
+                <input id="searchBar" type="text" v-model="category" placeholder="Enter a category">
             </div>
             <div id="search">
                 Search:
-                <input id="searchBar" type="text" v-model="search" placeholder="Enter a name or description">
+                <input id="searchBar" type="text" v-model="search" placeholder="Enter a name or key word">
             </div>
         </div>
         <div id="listOfCharities">
@@ -57,6 +58,12 @@
                                   <br>
                                   <div id="donatedMessage" v-if="showDonatedMessage">
                                       <p>Donated Successfully Inputted</p>
+                                </div>
+                                  <div id="review">
+                                      <h4>Write A Review!</h4>
+                                      <textarea id="textReview" placeholder="Write Review Here"></textarea>
+                                      <br>
+                                      <button type="submit" class="btn btn-danger" @click="submitReview(charityName)">Submit Review</button>
                                 </div>
                               </div>
                               <div class="infoBottom">
@@ -112,7 +119,8 @@ import firebase from "firebase";
                 cause: '',
                 ratingScore: '',
                 donateLink: '',
-                showDonatedMessage: false
+                showDonatedMessage: false,
+                category: ''
             }
         },
         firebase: {
@@ -122,14 +130,23 @@ import firebase from "firebase";
         computed: {
             //compute the number of pages
             pageCount(){
-                let l = this.filteredChar.length,
-                s = this.pageSize;
+                var l = this.filteredChar.length
+                if (this.category!=''){
+                    l = this.filteredCat.length
+                }
+                var s = this.pageSize;
                 return Math.floor(l/s);
             },
             //splits the charity data into pages
             pagedData(){
                 const start = this.pageNumber * this.pageSize,
                 end = start + this.pageSize;
+                if (this.search!=''){
+                    return this.filteredChar.slice(start, end);
+                }
+                if (this.category!=''){
+                    return this.filteredCat.slice(start, end);
+                }
                 return this.filteredChar.slice(start, end);
             },
             pageRange () {
@@ -150,11 +167,21 @@ import firebase from "firebase";
                     if (char.charityName.toLowerCase().match(this.search.toLowerCase())) {return true}
                     if (char.mission.toLowerCase().match(this.search.toLowerCase())) {return true}
                     else {return false}
-                        
                 });
+                
+            },
+            filteredCat () {
+                return this.charData.filter((char) => { 
+                    if (char.category.categoryName.toLowerCase().match(this.category.toLowerCase())) {return true}
+                    else {return false}
+                });
+                
             },
             favoriteList(){
                 return this.$store.state.favoriteList;
+            },
+            reviewedCharities(){
+                return this.$store.state.reviewedCharities;
             }
         },
         methods: {
@@ -237,7 +264,6 @@ import firebase from "firebase";
                     if(this.data[i].email===this.$store.state.currentUser){
                         var user = this.data[i];
                         var total = user.donationTotal + donatedAmount
-                        console.log(total)
                         dataRef.child(user['.key']).update({donationTotal: total })
                         if (dataRef.child(user['.key']).donations==false){
                             dataRef.child(user['.key']).update({donations: [
@@ -250,6 +276,23 @@ import firebase from "firebase";
                         });
                         }
                     }
+                }
+            },
+            submitReview(name){
+                var pushed = false;
+                var review = document.getElementById("textReview").value;
+                document.getElementById("textReview").value="";
+                for(var place=0; place<this.reviewedCharities.length;place++){
+                    if(this.reviewedCharities[place].charityName===name){
+                        this.$store.state.reviewedCharities[place].charityReview.push(review);
+                        pushed = true;
+                    }
+                }
+                if(!pushed){
+                    this.$store.state.reviewedCharities.push({
+                        charityName: name,
+                        charityReview: [review]
+                    })
                 }
             }
         },
@@ -310,7 +353,7 @@ import firebase from "firebase";
     }
     #search{
         display:inline;
-        margin-left:600px;
+        margin-left:250px;
     }
     #searchBar{
         width:220px;
@@ -380,5 +423,9 @@ import firebase from "firebase";
     }
     #donateLink:hover{
         background-color:dodgerblue;
+    }
+    #textReview{
+        width:450px;
+        height:150px;
     }
 </style>

@@ -5,6 +5,7 @@
         <div id="leftnav">
             <router-link to='/home'><a id="home">Home</a></router-link>
             <router-link to='/charity' v-if="currentUser"><a id="charities">Charities</a></router-link>
+            <router-link to='/charityReview' v-if="currentUser"><a id="charityReview">CharityReviews</a></router-link>
             <router-link to='/admin'><a id="admin" v-if="isAdmin">Admin</a></router-link>
             <router-link to='/progress'><a id="progress" v-if="currentUser && !isAdmin">Progress</a></router-link>
         </div>
@@ -89,6 +90,17 @@
         cursor: pointer;
     }
     #charities:hover{
+        background-color: #f9f9eb;
+        cursor: pointer;
+    }
+    #charityReview{
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:15px;
+        padding-right:15px;
+        cursor: pointer;
+    }
+    #charityReview:hover{
         background-color: #f9f9eb;
         cursor: pointer;
     }

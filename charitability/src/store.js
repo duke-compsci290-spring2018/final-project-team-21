@@ -12,7 +12,8 @@ export const store = new Vuex.Store({
         goal: 0,
         donationTotal: 0,
         favoriteList: [],
-        donatedCharities: []
+        donatedCharities: [],
+        reviewedCharities: []
     },
     mutations: {
         setUser(state, payload) {
