@@ -32,7 +32,7 @@ Vue.config.productionTip = false
 
 
 const routes = [
-    { path:'charitability/', component:home, props: true},
+    { path:'/charitability/', component:home, props: true},
     { path:'/login', component:login, props: true},
     { path:'/signup', component:signup, props:true },
     { path:'/profile', component:profile},
