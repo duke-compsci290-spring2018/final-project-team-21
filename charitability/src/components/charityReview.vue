@@ -8,6 +8,7 @@
                     <div v-for="charReview in charity.charityReviews">
                         <p><b>{{charReview.user}}: </b>{{charReview.review}}</p>
                     </div>
+                    <button id="deleteButton" @click="deleteReview(charity)" v-if="isAdmin" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>
@@ -29,7 +30,15 @@
         },
         computed:{
             reviewedCharities(){
-                return this.reviews
+                return this.reviews;
+            },
+            isAdmin(){
+                return this.$store.state.isAdmin;
+            }
+        },
+        methods:{
+            deleteReview(charity){
+                reviewsRef.child(charity['.key']).remove();
             }
         }
     }
@@ -42,5 +51,8 @@
         border-radius: 10px;
         padding-top:10px;
         background-color:cornsilk;
+    }
+    #deleteButton{
+        margin-bottom:10px;
     }
 </style>

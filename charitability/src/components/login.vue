@@ -1,10 +1,11 @@
 <template>
         <div class="login">
-            <h3>Log In</h3>
-            <input type="text" v-model="email" placeholder="Email"><br>
-            <input type="password" v-model="password" placeholder="Password"><br>
-            <button @click="logIn">Log In</button><br>
-            <span>Don't have an account? <router-link to="/signup">Create One</router-link></span>
+            <h2>Log In</h2>
+            <input class="inputForm" type="text" v-model="email" placeholder="Email"><br>
+            <input class="inputForm" type="password" v-model="password" placeholder="Password"><br>
+            <button class="btn btn-primary" @click="logIn">Log In</button><br>
+            <br>
+            <span>Don't have an account? <router-link to="/signup"><button id="signUpButton" class="btn btn-success btn-sm">Sign Up</button></router-link></span>
         </div>
 </template>
 
@@ -53,6 +54,10 @@ export default {
 <style scoped>
     .login {
         margin-top: 40px;
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+        padding-top:20px;
+        padding-bottom:20px;
     }
     input {
         margin: 5px 0px;
@@ -61,5 +66,16 @@ export default {
         margin-top: 20px;
         width: 15%;
         cursor: pointer;
+    }
+    #signUpButton{
+        width:100px;
+        height:40px;
+        margin-left:10px;
+        margin-bottom:15px;
+    }
+    .inputForm{
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 5px 5px 5px 5px
     }
 </style>

@@ -1,12 +1,22 @@
 <template>
     <div id="admin">
-        <h2>Users</h2>
-        <div v-for="user in data">
-            <p>{{user.email}}</p>
+        <br>
+        <h2><b>Users</b></h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div id="singleUser" class="col-sm-4" v-for="user in data">
+                    <h5><b>Email: {{user.email}}</b></h5>
+                    <h5>Password: {{user.password}}</h5>
+                </div>
+            </div>
         </div>
-        <h2>Donations Log</h2>
+        <br>
+        <h2><b>Donations Log</b></h2>
+        <br>
         <div v-for="donation in donations">
-            <p>{{donation.user}} donated {{donation.donatedAmount}} to {{ donation.charityName }}.</p>
+            <p><b>{{donation.user}}</b> donated <b>${{donation.donatedAmount}}</b> to {{ donation.charityName }}.</p>
+            <hr>
         </div>
     </div>
 </template>
@@ -24,13 +34,17 @@
         firebase:{
             data: dataRef,
             donations: donationsRef
-        },
-        created(){
-            
         }
     }
 </script>
 
 <style scoped>
+    #singleUser{
+        border: 1px solid black;
+        margin-top:10px;
+        border-radius: 10px;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
     
 </style>

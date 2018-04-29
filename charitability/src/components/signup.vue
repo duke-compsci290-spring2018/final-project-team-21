@@ -1,10 +1,10 @@
 <template>
         <div class="signup">
-            <h3>Sign Up</h3>
-            <input type="text" v-model="email" placeholder="Email"><br>
-            <input type="password" v-model="password" placeholder="Password"><br>
-            <button @click="signUp">Sign Up</button><br>
-            <span>Have an account? <router-link to="/login">Login</router-link></span>
+            <h2>Sign Up</h2>
+            <input class="inputForm" type="text" v-model="email" placeholder="Email"><br>
+            <input class="inputForm" type="password" v-model="password" placeholder="Password"><br>
+            <button class="btn btn-success" @click="signUp">Sign Up</button><br>
+            <span>Have an account? <router-link to="/login"><button id="loginButton" class="btn btn-primary btn-sm">Login</button></router-link></span>
         </div>
 </template>
 
@@ -58,6 +58,10 @@ export default {
 <style scoped>
     .signup {
         margin-top: 40px;
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+        padding-top:20px;
+        padding-bottom:20px;
     }
     input {
         margin: 5px 0px;
@@ -66,5 +70,16 @@ export default {
         margin-top: 20px;
         width: 10%;
         cursor: pointer;
+    }
+    .inputForm{
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 5px 5px 5px 5px
+    }
+    #loginButton{
+        width:100px;
+        height:40px;
+        margin-left:10px;
+        margin-bottom:15px;
     }
 </style>

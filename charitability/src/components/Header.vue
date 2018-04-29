@@ -3,16 +3,16 @@
     <h1>Charitability</h1>
     <div id="navbar">
         <div id="leftnav">
-            <router-link to='/home'><a id="home">Home</a></router-link>
-            <router-link to='/charity' v-if="currentUser"><a id="charities">Charities</a></router-link>
-            <router-link to='/charityReview' v-if="currentUser"><a id="charityReview">Reviews</a></router-link>
-            <router-link to='/admin'><a id="admin" v-if="isAdmin">Admin</a></router-link>
-            <router-link to='/goals'><a id="progress" v-if="currentUser && !isAdmin">Goals</a></router-link>
+            <router-link class="routerLink" to='/home'><a id="home">Home</a></router-link>
+            <router-link class="routerLink" to='/charity' v-if="currentUser"><a id="charities">Charities</a></router-link>
+            <router-link class="routerLink" to='/charityReview' v-if="currentUser"><a id="charityReview">Reviews</a></router-link>
+            <router-link class="routerLink" to='/admin'><a id="admin" v-if="isAdmin">Admin</a></router-link>
+            <router-link class="routerLink" to='/goals'><a id="progress" v-if="currentUser && !isAdmin">Goals</a></router-link>
         </div>
         <div id="rightnav">
-            <router-link to='/profile'><a id="profile" v-if="currentUser && !isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
+            <router-link class="routerLink" to='/profile'><a id="profile" v-if="currentUser && !isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
             <span id="adminprof" v-if="isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</span>
-            <router-link to="/login"><a id="login" v-if="!currentUser"><i class="fa fa-sign-in"></i> Login </a></router-link>
+            <router-link class="routerLink" to="/login"><a id="login" v-if="!currentUser"><i class="fa fa-sign-in"></i> Login </a></router-link>
             <a id="logout" @click="logout" v-if="currentUser"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
     </div>
@@ -55,86 +55,86 @@
         margin-bottom: 20px;
     }
     #home{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
     #home:hover{
-        background-color: #f9f9eb;
+        background-color: #d3edf8;
         cursor: pointer;
     }
     #profile{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
     #adminprof{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
     }
     #profile:hover{
-        background-color: #f9f9eb;
+        background-color: #d3edf8;
         cursor: pointer;
     }
     #charities{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
     #charities:hover{
-        background-color: #f9f9eb;
+        background-color: #d3edf8;
         cursor: pointer;
     }
     #charityReview{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
     #charityReview:hover{
-        background-color: #f9f9eb;
+        background-color: #d3edf8;
         cursor: pointer;
     }
     #progress{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
     #progress:hover{
-        background-color: #f9f9eb;
+        background-color: #d3edf8;
         cursor: pointer;
     }
     #login{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
     #login:hover{
-        background-color: #f9f9eb;
+        background-color: #d3edf8;
         cursor: pointer;
     }
     #logout{
-        padding-top:10px;
-        padding-bottom:10px;
+        padding-top:12px;
+        padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
     #logout:hover{
-        background-color: #f9f9eb;
+        background-color: #d3edf8;
         cursor: pointer;
     }
     #navbar {
@@ -156,5 +156,20 @@
         padding-bottom:5px;
         display: inline-block;
         float:right;
+    }
+    #admin{
+        padding-top:12px;
+        padding-bottom:12px;
+        padding-left:15px;
+        padding-right:15px;
+        cursor: pointer;
+    }
+    #admin:hover{
+        background-color: #d3edf8;
+        cursor: pointer;
+    }
+    .routerLink{
+        color:black;
+        text-decoration: none;
     }
 </style>

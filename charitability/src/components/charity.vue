@@ -2,11 +2,11 @@
     <div id="charity">
         <div id="searchArea">
             <div id="filter">
-                Category:
+                <b>Category:</b>
                 <input id="searchBar" type="text" v-model="category" placeholder="Enter a category">
             </div>
             <div id="search">
-                Search:
+                <b>Search:</b>
                 <input id="searchBar" type="text" v-model="search" placeholder="Enter a name or key word">
             </div>
         </div>
