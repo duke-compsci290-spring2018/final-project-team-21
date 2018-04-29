@@ -52,6 +52,7 @@
 import axios from "axios";
 import { donationsRef,dataRef } from "../database.js";
 import firebase from "firebase";
+import { API_ID, API_KEY } from '../secrets.js';
     
     export default {
         name: "home",
@@ -66,9 +67,9 @@ import firebase from "firebase";
             data: dataRef
         },
         mounted () {
-            axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=24&pageNum=1&rated=true&minRating=4&maxRating=4').then(response => (this.charDataHighestRated = response.data)).catch(error => console.log(error)),
+            axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=' + API_ID + '&app_key=' + API_KEY + '&pageSize=24&pageNum=1&rated=true&minRating=4&maxRating=4').then(response => (this.charDataHighestRated = response.data)).catch(error => console.log(error)),
             
-            axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=4&pageNum=1&rated=true&minRating=3&maxRating=4&scopeOfWork=INTERNATIONAL').then(response => (this.charDataFeatured = response.data)).catch(error => console.log(error))
+            axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=' + API_ID +'&app_key=' + API_KEY + '&pageSize=4&pageNum=1&rated=true&minRating=3&maxRating=4&scopeOfWork=INTERNATIONAL').then(response => (this.charDataFeatured = response.data)).catch(error => console.log(error))
         },
         computed:{
             currentUser(){

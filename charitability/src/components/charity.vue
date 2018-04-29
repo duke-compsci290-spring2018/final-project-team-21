@@ -102,6 +102,7 @@
 import axios from "axios";
 import { donationsRef,dataRef,reviewsRef } from "../database.js";
 import firebase from "firebase";
+import { API_ID, API_KEY } from '../secrets.js';
 
     export default { 
         name: 'charity',
@@ -305,7 +306,7 @@ import firebase from "firebase";
         },
         mounted () {
             axios
-                .get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=900&rated=true&sort=NAME%3AASC')
+                .get('https://api.data.charitynavigator.org/v2/Organizations?app_id=' + API_ID + '&app_key=' + API_KEY + '&pageSize=900&rated=true&sort=NAME%3AASC')
                 .then(response => (this.charData = response.data))
                 .catch(error => console.log(error))
         }
