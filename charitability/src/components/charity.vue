@@ -228,7 +228,6 @@ import firebase from "firebase";
                     donatedAmount: donatedAmount
                 })
                 this.showDonatedMessage = true;
-                this.$store.state.donationTotal = this.$store.state.donationTotal + donatedAmount;
                 donationsRef.push({
                     user: this.$store.state.currentUser,
                     charityName: this.charityName,
@@ -237,6 +236,9 @@ import firebase from "firebase";
                 for(var i=0;i<this.data.length;i++){
                     if(this.data[i].email===this.$store.state.currentUser){
                         var user = this.data[i];
+                        var total = user.donationTotal + donatedAmount
+                        console.log(total)
+                        dataRef.child(user['.key']).update({donationTotal: total })
                         if (dataRef.child(user['.key']).donations==false){
                             dataRef.child(user['.key']).update({donations: [
                             {charityName: this.charityName, donatedAmount: donatedAmount}]})

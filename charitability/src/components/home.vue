@@ -50,6 +50,9 @@
 
 <script>
 import axios from "axios";
+import { donationsRef,dataRef } from "../database.js";
+import firebase from "firebase";
+    
     export default {
         name: "home",
         data () {
@@ -58,15 +61,16 @@ import axios from "axios";
                 charDataFeatured: []
             }
         },
+        firebase: {
+            donations: donationsRef,
+            data: dataRef
+        },
         mounted () {
             axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=24&pageNum=1&rated=true&minRating=4&maxRating=4').then(response => (this.charDataHighestRated = response.data)).catch(error => console.log(error)),
             
             axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=4&pageNum=1&rated=true&minRating=3&maxRating=4&scopeOfWork=INTERNATIONAL').then(response => (this.charDataFeatured = response.data)).catch(error => console.log(error))
         },
         computed:{
-            favoriteList(){
-                return this.$store.state.favoriteList;
-            },
             currentUser(){
                return this.$store.state.currentUser;
             }
@@ -74,17 +78,23 @@ import axios from "axios";
         methods:{
             addToFavorites(name, tagline, image){
                 var exists = false;
-                for(var place=0; place<this.favoriteList.length; place++){
-                    if(this.favoriteList[place].charityName===name){
-                        exists = true;
-                    }
-                }
                 if(!exists){
-                    this.$store.state.favoriteList.push({
-                        charityName: name,
-                        charityTagLine: tagline,
-                        charityRatingImage: image
-                    });
+                    for(var i=0;i<this.data.length;i++){
+                        if(this.data[i].email===this.$store.state.currentUser){
+                            var user = this.data[i];
+                            if (dataRef.child(user['.key']).favorites==false){
+                                dataRef.child(user['.key']).update({favorites: [
+                                {charityName: name, charityTagLine: tagline, charityRatingImage: image}]})
+                            }
+                            else{
+                            dataRef.child(user['.key']).child('favorites').push({
+                                charityName: name,
+                                charityTagLine: tagline,
+                                charityRatingImage: image
+                            });
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -86,17 +86,27 @@ import { dataRef, donationsRef } from '../database.js';
                 return this.none
             },
             goal(){
-                return this.$store.state.goal;
+                for(var i=0;i<this.data.length;i++){
+                    if(this.data[i].email==this.$store.state.currentUser){
+                            var user = this.data[i];
+                            return user.goalAmount
+                    }
+                }
             },
             donationTotal(){
-                return this.$store.state.donationTotal;
+                for(var i=0;i<this.data.length;i++){
+                    if(this.data[i].email==this.$store.state.currentUser){
+                            var user = this.data[i];
+                            return user.donationTotal
+                    }
+                }
             },
             percentTowardsGoal(){
-                if(this.$store.state.donationTotal===0){
+                if(this.donationTotal==0){
                     return 0;
                 }
                 else{
-                    return (this.$store.state.donationTotal/this.$store.state.goal)*100;
+                    return (this.donationTotal/this.goal)*100;
                 }
             }
         },

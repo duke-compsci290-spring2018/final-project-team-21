@@ -149,7 +149,12 @@
             },
             submitGoal(){
                 console.log(this.goal);
-                this.$store.state.goal = this.goal;
+                for(var i=0;i<this.data.length;i++){
+                    if(this.data[i].email===this.currentUser){
+                        var user = this.data[i];
+                        dataRef.child(user['.key']).update({goalAmount: this.goal })
+                    }
+                }
                 document.getElementById("goalInput").value = "";
             }
         }
