@@ -8,7 +8,7 @@
         <h2 v-if="percentTowardsGoal>=100"><b class="goalMessage">Congratulations!</b> You have completed your goal! Set a new goal in the profile page</h2>
         <br>
         <br>
-        <h1><b>Charities You donated To</b></h1>
+        <h1><b>Charities You Donated To</b></h1>
         <p v-if="!this.donations" class="NoneMessage">You have not donated to any Charities! Get started in the Charities Tab</p>
         <div class="container">
             <div class="row">
