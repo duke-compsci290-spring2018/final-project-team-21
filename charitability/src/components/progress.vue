@@ -106,7 +106,7 @@ import { dataRef, donationsRef } from '../database.js';
                     return 0;
                 }
                 else{
-                    return (this.donationTotal/this.goal)*100;
+                    return Math.floor((this.donationTotal/this.goal)*100);
                 }
             }
         },
