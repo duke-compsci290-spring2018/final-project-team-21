@@ -1,7 +1,8 @@
 <template>
     <div id="profile">
+        <div id="container">
         <div id="profileInfo">
-            <img :style="{'max-width': '184px'}" :src="userImage" alt="userPicture">
+            <img id="image" :style="{'max-width': '184px'}" :src="userImage" alt="userPicture">
             <br>
             <br>
             <div id="changeInfo">
@@ -12,34 +13,22 @@
                         </form>
                 <br>
                 <p><b>Change Email:</b></p>
-                <input v-model="email" type="text">
-                <input @click.prevent="updateEmail" type="submit">
+                <input v-model="email" type="text" placeholder="New Email">
+                <input class="submitButton" @click.prevent="updateEmail" type="submit">
+                <br>
                 <br>
                 <p><b>Change Password:</b></p>
-                <input v-model="password" type="text">
-                <input @click.prevent="updatePassword" type="submit">
-            </div>
-            </div>
-            <div id="vl">
-            <div id="right">
-                <h5>Favorited Charities</h5>
+                <input v-model="password" type="text" placeholder="New Password">
+                <input class="submitButton" @click.prevent="updatePassword" type="submit">
                 <br>
                 <br>
-                <br>
-                <br>
-                <h5>Charities Recently Donated to</h5>
-                <br>
-                <br>
-                <br>
-                <br>
-                <h5>Recommended Charities</h5>
-                <br>
-                <br>
-                <br>
-                <br>
-                <h5>Your Jar of Hearts</h5>
+                <p><b>Update Goal: </b></p>
+                <p><i>How much money do you want to raise?</i></p>
+                <input v-model="goal"id="goalInput" type="text" placeholder="New Goal">
+                <input type="submit" id="submitGoal" class="submitButton" @click="submitGoal">
             </div>
         </div>
+            </div>
     </div>
 </template>
 
@@ -54,7 +43,8 @@
         data() {
             return {
                 email: '',
-                password: ''
+                password: '',
+                goal: ''
             }
         },
         computed:{
@@ -156,29 +146,41 @@
                         }
                     alert('Password changed!')
                     this.password=""
-            } 
+            },
+            submitGoal(){
+                console.log(this.goal);
+                this.$store.state.goal = this.goal;
+                document.getElementById("goalInput").value = "";
+            }
         }
     }
 </script>
 
 <style scoped>
-    #changeInfo{
-        text-align: left;
+    #image{
+        margin-right:50px;
+        margin-top:20px;
     }
-    #profileInfo{
+    #profileInfo{       
         display:inline;
-        float:left;
         margin-left: 55px;
         margin-top: 10px;
     }
-    #right{
-        text-align:left;
-        margin-left:40px;
+    #container{
+        margin-top:50px;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        width:600px;
+        margin: 0 auto;
+        height: 650px;
     }
-    #vl {
-        margin-top:20px;
-        margin-left:500px;
-        border-left: 1px solid grey;
-        height: 510px;
-}
+    .submitButton{
+        height:32px;
+        width: 70px;
+        background-color:deepskyblue;
+        color:white;
+        border-radius: 5px;
+        border:none;
+        cursor:pointer;
+    }
 </style>

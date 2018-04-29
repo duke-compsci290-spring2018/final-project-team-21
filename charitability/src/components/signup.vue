@@ -31,8 +31,13 @@ export default {
                     dataRef.push({
                         email: this.email,
                         password: this.password,
-                        userImgUrl: "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+                        userImgUrl: "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg",
+                        donations: false,
+                        favorites: false,
+                        goalAmount: 0,
+                        donationTotal: 0
                     });
+                    
                     user.updateProfile({
                         photoURL: 'http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg'
                         })

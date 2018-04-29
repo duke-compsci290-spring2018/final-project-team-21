@@ -9,6 +9,8 @@ export const store = new Vuex.Store({
         currentUser:'',
         userImgUrl: '',
         isAdmin: false,
+        goal: 0,
+        donationTotal: 0,
         favoriteList: [],
         donatedCharities: []
     },

@@ -4,12 +4,16 @@
         <div v-for="user in data">
             <p>{{user.email}}</p>
         </div>
+        <h2>Donations Log</h2>
+        <div v-for="donation in donations">
+            <p>{{donation.user}} donated {{donation.donatedAmount}} to {{ donation.charityName }}.</p>
+        </div>
     </div>
 </template>
 
 <script>
     
-    import { dataRef, storageRef } from "../database.js";
+    import { donationsRef, dataRef, storageRef } from "../database.js";
 
     export default {
         name: "admin",
@@ -18,7 +22,8 @@
             }
         },
         firebase:{
-            data: dataRef
+            data: dataRef,
+            donations: donationsRef
         },
         created(){
             

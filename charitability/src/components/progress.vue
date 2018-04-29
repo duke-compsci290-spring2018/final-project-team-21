@@ -1,9 +1,15 @@
 <template>
     <div id="progress">
-        <h1 id="title">Goals</h1>
+        <h1 id="title"><b>Goals</b></h1>
+        <br>
+        <h3>Your Goal: <b v-if="goal!=0">${{goal}}</b><b class="goalMessage" v-if="goal===0">Set a Goal in Profile</b></h3>
+        <h3>Raised so far: <b>${{donationTotal}}</b></h3>
+        <h2 v-if="percentTowardsGoal<100">You are <b class="goalMessage">{{percentTowardsGoal}}%</b> to completing your goal</h2>
+        <h2 v-if="percentTowardsGoal>=100"><b class="goalMessage">Congratulations!</b> You have completed your goal! Set a new goal in the profile page</h2>
         <br>
         <br>
-        <h2>Charities You donated To</h2>
+        <h1><b>Charities You donated To</b></h1>
+        <p v-if="!this.donations" class="NoneMessage">You have not donated to any Charities! Get started in the Charities Tab</p>
         <div class="container">
             <div class="row">
                 <div id="singleDonated" class="col-sm-4" v-for="donated in donatedCharities">
@@ -15,7 +21,8 @@
         <br>
         <br>
         <br>
-        <h2>Favorite Charities</h2>
+        <h1><b>Favorite Charities</b></h1>
+        <p v-if="!this.favorites" class="NoneMessage">You do not have any favorite Charities</p>
         <div class="container">
             <div class="row">
                 <div id="singleFavorite" class="col-sm-4" v-for="(char,index) in favoriteList">
@@ -32,23 +39,75 @@
 </template>
 
 <script>
+import firebase from 'firebase';
+import { dataRef, donationsRef } from '../database.js';
     export default {
         name: "progress",
         data () {
-        return {
+            return {
+                none: [],
+                favorites: true,
+                donations: true
             }
+        },
+        firebase: {
+            donations: donationsRef,
+            data: dataRef
         },
         computed:{
             favoriteList(){
-                return this.$store.state.favoriteList;
+                for(var i=0;i<this.data.length;i++){
+                    if(this.data[i].email==this.$store.state.currentUser){
+                            var user = this.data[i];
+                                if (user.favorites==false){
+                                    this.favorites = false;
+                                    return this.none
+                                }
+                                else{
+                                    return user.favorites
+                                }
+                            }
+                        }
+                return this.none
             },
             donatedCharities(){
-                return this.$store.state.donatedCharities;
+                for(var i=0;i<this.data.length;i++){
+                    if(this.data[i].email==this.$store.state.currentUser){
+                            var user = this.data[i];
+                                if (user.donations==false){
+                                    this.donations = false;
+                                    return this.none
+                                }
+                                else{
+                                    return user.donations
+                                }
+                            }
+                        }
+                return this.none
+            },
+            goal(){
+                return this.$store.state.goal;
+            },
+            donationTotal(){
+                return this.$store.state.donationTotal;
+            },
+            percentTowardsGoal(){
+                if(this.$store.state.donationTotal===0){
+                    return 0;
+                }
+                else{
+                    return (this.$store.state.donationTotal/this.$store.state.goal)*100;
+                }
             }
         },
         methods:{
             removeCharity(index){
-                this.$store.state.favoriteList.splice(index,1);
+                for(var i=0;i<this.data.length;i++){
+                    if(this.data[i].email==this.$store.state.currentUser){
+                       var user = this.data[i];
+                        dataRef.child(user['.key']).child('favorites').child(index).remove();
+                    }
+                }
             }
         }
     }
@@ -74,5 +133,11 @@
         padding-top:10px;
         padding-bottom:10px;
         background-color:azure;
+    }
+    .NoneMessage{
+        color:red;
+    }
+    .goalMessage{
+        color:blue;
     }
 </style>

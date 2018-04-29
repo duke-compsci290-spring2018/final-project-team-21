@@ -1,17 +1,48 @@
 <template>
     <div id="home">
         <div id="featured">
-            <h3>Featured Charities</h3>
-<!--
-            <div v-for="char in charData">
-                {{char.charityName}}
+            <h1><b>Featured Charities</b></h1>
+            <div class="container">
+                <div class="row">
+                    <div id="singleFeatured" class="col-sm-3" v-for="char in charDataFeatured">
+                        <h5><b>{{char.charityName}}</b></h5>
+                        <hr>
+                        {{char.tagLine}}
+                        <br>
+                        <br>
+                        <b>{{char.category.categoryName}}</b>
+                        <br>
+                        <img :src="char.currentRating.ratingImage.large" alt="Charity Rating">
+                        <hr>
+                        <button id="favoritesButton" v-if="currentUser" class="btn btn-success" @click="addToFavorites(char.charityName,char.tagLine,char.currentRating.ratingImage.large)">Add to Favorites</button>
+                        <br>
+                        <br>
+                        <p v-if="currentUser">Donate through the Charities Tab</p>
+                    </div>
+                </div>
             </div>
--->
         </div>
+        <hr>
         <div id=highestRated>
-            <h3>Highest Rated Charities</h3>
-            <div v-for="char in charDataHighestRated">
-                {{char.charityName}}
+            <h1><b>Highest Rated Charities</b></h1>
+            <div class="container">
+                <div class="row">
+                    <div id="singleHighest" class="col-sm-2" v-for="char in charDataHighestRated">
+                        <h5><b>{{char.charityName}}</b></h5>
+                        <hr>
+                        {{char.tagLine}}
+                        <br>
+                        <br>
+                        <b>{{char.category.categoryName}}</b>
+                        <br>
+                        <img :src="char.currentRating.ratingImage.large" alt="Charity Rating">
+                        <hr>
+                        <button id="favoritesButton" v-if="currentUser" class="btn btn-success" @click="addToFavorites(char.charityName,char.tagLine,char.currentRating.ratingImage.large)">Add to Favorites</button>
+                        <br>
+                        <br>
+                        <p v-if="currentUser">Donate through the Charities Tab</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -23,11 +54,39 @@ import axios from "axios";
         name: "home",
         data () {
             return {
-                charDataHighestRated: []
+                charDataHighestRated: [],
+                charDataFeatured: []
             }
         },
         mounted () {
-            axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&rated=true&minRating=4&maxRating=4').then(response => (this.charDataHighestRated = response.data)).catch(error => console.log(error))
+            axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=24&pageNum=1&rated=true&minRating=4&maxRating=4').then(response => (this.charDataHighestRated = response.data)).catch(error => console.log(error)),
+            
+            axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=4&pageNum=1&rated=true&minRating=3&maxRating=4&scopeOfWork=INTERNATIONAL').then(response => (this.charDataFeatured = response.data)).catch(error => console.log(error))
+        },
+        computed:{
+            favoriteList(){
+                return this.$store.state.favoriteList;
+            },
+            currentUser(){
+               return this.$store.state.currentUser;
+            }
+        },
+        methods:{
+            addToFavorites(name, tagline, image){
+                var exists = false;
+                for(var place=0; place<this.favoriteList.length; place++){
+                    if(this.favoriteList[place].charityName===name){
+                        exists = true;
+                    }
+                }
+                if(!exists){
+                    this.$store.state.favoriteList.push({
+                        charityName: name,
+                        charityTagLine: tagline,
+                        charityRatingImage: image
+                    });
+                }
+            }
         }
     }
 </script>
@@ -35,5 +94,23 @@ import axios from "axios";
 <style scoped>
     #featured{
         margin-top:20px;
+        margin-bottom:30px;
+    }
+    #singleFeatured{
+        border: 1px solid black;
+        margin-top:30px;
+        border-radius: 10px;
+        padding-top:10px;
+        background-color:#ffe6e6;
+    }
+    #singleHighest{
+        border: 1px solid black;
+        margin-top:30px;
+        border-radius: 10px;
+        padding-top:10px;
+        background-color:beige;
+    }
+    #favoritesButton{
+        margin-bottom:5px;
     }
 </style>

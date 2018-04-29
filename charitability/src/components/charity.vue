@@ -52,7 +52,7 @@
                                   <br>
                                 <h4>How much did you donate?</h4>
                                   <input id="amountDonated" type="text" placeholder="Amount" @click="showDonatedMessage = false">
-                                  <button type="submit" class="btn btn-primary" @click="submitDonation(char.charityName)">Submit</button>
+                                  <button type="submit" class="btn btn-primary" @click="submitDonation">Submit</button>
                                   <br>
                                   <br>
                                   <div id="donatedMessage" v-if="showDonatedMessage">
@@ -93,6 +93,8 @@
 
 <script>
 import axios from "axios";
+import { donationsRef,dataRef } from "../database.js";
+import firebase from "firebase";
 
     export default { 
         name: 'charity',
@@ -112,6 +114,10 @@ import axios from "axios";
                 donateLink: '',
                 showDonatedMessage: false
             }
+        },
+        firebase: {
+            donations: donationsRef,
+            data: dataRef
         },
         computed: {
             //compute the number of pages
@@ -196,16 +202,53 @@ import axios from "axios";
                         charityTagLine: tagline,
                         charityRatingImage: image
                     });
+                    for(var i=0;i<this.data.length;i++){
+                        if(this.data[i].email===this.$store.state.currentUser){
+                            var user = this.data[i];
+                            if (dataRef.child(user['.key']).favorites==false){
+                                dataRef.child(user['.key']).update({favorites: [
+                                {charityName: name, charityTagLine: tagline, charityRatingImage: image}]})
+                            }
+                            else{
+                            dataRef.child(user['.key']).child('favorites').push({
+                                charityName: name,
+                                charityTagLine: tagline,
+                                charityRatingImage: image
+                            });
+                            }
+                        }
+                    }
                 }
             },
-            submitDonation(charityName){
+            submitDonation(){
                 var donatedAmount = parseInt(document.getElementById("amountDonated").value);
                 document.getElementById("amountDonated").value="";
                 this.$store.state.donatedCharities.push({
-                    charityName: charityName,
+                    charityName: this.charityName,
                     donatedAmount: donatedAmount
                 })
                 this.showDonatedMessage = true;
+                this.$store.state.donationTotal = this.$store.state.donationTotal + donatedAmount;
+                donationsRef.push({
+                    user: this.$store.state.currentUser,
+                    charityName: this.charityName,
+                    donatedAmount: donatedAmount
+                })
+                for(var i=0;i<this.data.length;i++){
+                    if(this.data[i].email===this.$store.state.currentUser){
+                        var user = this.data[i];
+                        if (dataRef.child(user['.key']).donations==false){
+                            dataRef.child(user['.key']).update({donations: [
+                            {charityName: this.charityName, donatedAmount: donatedAmount}]})
+                        }
+                        else{
+                        dataRef.child(user['.key']).child('donations').push({
+                            charityName: this.charityName,
+                            donatedAmount: donatedAmount
+                        });
+                        }
+                    }
+                }
             }
         },
         mounted () {
@@ -330,9 +373,10 @@ import axios from "axios";
         border: 1px solid black;
         padding: 8px 8px 8px 8px;
         border-radius: 5px;
-        background-color:skyblue;
+        background-color:deepskyblue;
+        color:white;
     }
     #donateLink:hover{
-        background-color:deepskyblue;
+        background-color:dodgerblue;
     }
 </style>

@@ -12,6 +12,7 @@
     import home from "./components/home.vue";
     import login from "./components/login.vue";
     import {dataRef} from "./database.js";
+    import {donationsRef} from "./database.js";
     import {store} from './store.js'
 
     
@@ -20,13 +21,11 @@ export default {
     computed:{
         currentUser(){
             return this.$store.state.currentUser;
-        },
-        loggedIn(){
-            return this.$store.state.UserloggedIn;
         }
     },
     firebase: {
-        data: dataRef
+        data: dataRef,
+        donations: donationsRef
     },
     data () {
         return {
