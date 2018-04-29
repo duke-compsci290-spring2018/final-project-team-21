@@ -5,10 +5,12 @@
         <div id="leftnav">
             <router-link to='/home'><a id="home">Home</a></router-link>
             <router-link to='/charity' v-if="currentUser"><a id="charities">Charities</a></router-link>
-            <router-link to='/progress'><a id="progress" v-if="currentUser">Progress</a></router-link>
+            <router-link to='/admin'><a id="admin" v-if="isAdmin">Admin</a></router-link>
+            <router-link to='/progress'><a id="progress" v-if="currentUser && !isAdmin">Progress</a></router-link>
         </div>
         <div id="rightnav">
-            <router-link to='/profile'><a id="profile" v-if="currentUser"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
+            <router-link to='/profile'><a id="profile" v-if="currentUser && !isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
+            <span id="adminprof" v-if="isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</span>
             <router-link to="/login"><a id="login" v-if="!currentUser"><i class="fa fa-sign-in"></i> Login </a></router-link>
             <a id="logout" @click="logout" v-if="currentUser"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
@@ -25,8 +27,8 @@
            currentUser(){
                return this.$store.state.currentUser;
            },
-            loggedIn(){
-                return this.$store.state.UserloggedIn;
+            isAdmin(){
+                return this.$store.state.isAdmin;
             }
         },
         data () {
@@ -36,11 +38,11 @@
         methods:{
             logout(){
                 firebase.auth().signOut().then(()=>{
-                    
+                
                     this.$router.replace('home')
                 })
-                this.$store.state.UserloggedIn = false;
                 this.$store.state.currentUser = null;
+                this.$store.state.isAdmin = false;
             }
         }   
     }
@@ -68,6 +70,12 @@
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
+    }
+    #adminprof{
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:15px;
+        padding-right:15px;
     }
     #profile:hover{
         background-color: #f9f9eb;

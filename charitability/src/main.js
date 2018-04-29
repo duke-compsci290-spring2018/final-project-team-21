@@ -18,6 +18,8 @@ import profile from './components/profile.vue'
 import home from './components/home.vue'
 import charity from './components/charity.vue'
 import progress from './components/progress.vue'
+import admin from './components/admin.vue'
+
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -32,10 +34,11 @@ const routes = [
     { path:'/', component:home, props: true},
     { path:'/login', component:login, props: true},
     { path:'/signup', component:signup, props:true },
-    { path:'/profile', component:profile },
+    { path:'/profile', component:profile},
     { path:'/charity', component:charity },
     { path:'/home', component:home },
-    { path:'/progress', component:progress }
+    { path:'/progress', component:progress},
+    { path: '/admin', component:admin}
 ]
 
 const router = new VueRouter({

@@ -26,11 +26,20 @@ export default {
                 (user)=>{
                     this.$router.replace('home');
                     this.$store.state.currentUser = this.email;
+                    this.$store.state.userImgUrl = "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+
                     dataRef.push({
                         email: this.email,
                         password: this.password,
                         userImgUrl: "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
                     });
+                    user.updateProfile({
+                        photoURL: 'http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg'
+                        })
+                    if (this.email=='admin@admin.com'){
+                        this.$store.state.isAdmin = true;
+                    }
+                    
                 },
                 (err)=>{
                     alert('Failed to create account. '+err.message)

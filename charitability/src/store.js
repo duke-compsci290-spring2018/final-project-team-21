@@ -7,20 +7,27 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state:{
         currentUser:'',
-        userImgUrl: ''
+        userImgUrl: '',
+        isAdmin: false,
+        favoriteList: [],
+        donatedCharities: []
     },
     mutations: {
         setUser(state, payload) {
             state.currentUser = payload.email; 
-        },
+            state.userImgUrl = payload.photoURL;
+            if(payload.email=='admin@admin.com'){
+                state.isAdmin=true;
+            } 
+        }
     },
     actions: {
         autoSignIn ({commit}, payload) {
-            commit('setUser', {email: payload.email})
+            commit('setUser', {email: payload.email, photoURL:payload.photoURL})
         }
     },
     getters: {
-        getUser: (state) => { 
+        getUser: (state) => {
             return state.currentUser; 
         }
     }

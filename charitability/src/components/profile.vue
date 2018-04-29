@@ -15,7 +15,6 @@
                 <input v-model="email" type="text">
                 <input @click.prevent="updateEmail" type="submit">
                 <br>
-                <br>
                 <p><b>Change Password:</b></p>
                 <input v-model="password" type="text">
                 <input @click.prevent="updatePassword" type="submit">
@@ -84,7 +83,12 @@
             },
             //adding the user image
             addUserImage:  function(url) {
+                var user = firebase.auth().currentUser;
+                user.updateProfile({
+                        photoURL: url
+                        })
                 this.$store.state.userImgUrl = url;
+                
                 for(var i=0;i<this.data.length;i++){
                     if(this.data[i].email===this.currentUser){
                         var user = this.data[i];

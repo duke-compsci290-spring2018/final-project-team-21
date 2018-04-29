@@ -14,7 +14,7 @@
             <div class="col">
                 <div id="row" class="row">
                     <div id="singleCharity" class="col-sm-4" v-for="char in pagedData">
-                            <button id="favoritesButton" class="btn btn-primary btn-sm">Add to Favorites</button>
+                            <button id="favoritesButton" class="btn btn-primary btn-sm" @click="addToFavorites(char.charityName, char.tagLine, char.currentRating.ratingImage.large)">Add to Favorites</button>
                             <img :src="char.category.image" alt="Charity Photo">
                             <h5>{{ char.charityName }}</h5>
                             <h6 id="categoryName">{{char.category.categoryName}}</h6>
@@ -48,11 +48,21 @@
                                   <br>
                                   <br>
                                 <h4>Rating Score: <b>{{ratingScore}}</b></h4>
+                                  <br>
+                                  <br>
+                                <h4>How much did you donate?</h4>
+                                  <input id="amountDonated" type="text" placeholder="Amount" @click="showDonatedMessage = false">
+                                  <button type="submit" class="btn btn-primary" @click="submitDonation(char.charityName)">Submit</button>
+                                  <br>
+                                  <br>
+                                  <div id="donatedMessage" v-if="showDonatedMessage">
+                                      <p>Donated Successfully Inputted</p>
+                                </div>
                               </div>
                               <div class="infoBottom">
                                   <hr>
                                 <a id="learnMoreLink" :href="charityNavigatorLink">More Info Here</a>
-                                <a id="donateLink" :href="donateLink">Donate Here</a>
+                                  <a id="donateLink" :href="donateLink">Donate Here</a>
                               </div>
                             </div>
 
@@ -99,7 +109,8 @@ import axios from "axios";
                 charityNavigatorLink: '',
                 cause: '',
                 ratingScore: '',
-                donateLink: ''
+                donateLink: '',
+                showDonatedMessage: false
             }
         },
         computed: {
@@ -135,6 +146,9 @@ import axios from "axios";
                     else {return false}
                         
                 });
+            },
+            favoriteList(){
+                return this.$store.state.favoriteList;
             }
         },
         methods: {
@@ -167,6 +181,31 @@ import axios from "axios";
             closeInfo(){
                 var modal = document.getElementById('infoModal');
                 modal.style.display = "none";
+                this.showDonatedMessage = false;
+            },
+            addToFavorites(name, tagline, image){
+                var exists = false;
+                for(var place=0; place<this.favoriteList.length; place++){
+                    if(this.favoriteList[place].charityName===name){
+                        exists = true;
+                    }
+                }
+                if(!exists){
+                    this.$store.state.favoriteList.push({
+                        charityName: name,
+                        charityTagLine: tagline,
+                        charityRatingImage: image
+                    });
+                }
+            },
+            submitDonation(charityName){
+                var donatedAmount = parseInt(document.getElementById("amountDonated").value);
+                document.getElementById("amountDonated").value="";
+                this.$store.state.donatedCharities.push({
+                    charityName: charityName,
+                    donatedAmount: donatedAmount
+                })
+                this.showDonatedMessage = true;
             }
         },
         mounted () {
@@ -258,7 +297,7 @@ import axios from "axios";
         width: 70%;
     }
 
-/*    Close button for the modal*/
+    /*    Close button for the modal*/
     .closeButton {
         float: right;
         font-size: 32px;

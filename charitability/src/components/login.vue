@@ -30,9 +30,15 @@ export default {
                     this.$router.replace('home');
                     this.$store.state.currentUser = this.email;
                     for(var i=0;i<this.data.length;i++){
-                        if(this.data[i].name===this.email){
+                        if(this.data[i].email==this.email){
                             this.$store.state.userImgUrl = this.data[i].userImgUrl;
                         }
+                    }
+                    user.updateProfile({
+                        photoURL: this.$store.state.userImgUrl
+                        })
+                    if (this.email=='admin@admin.com'){
+                        this.$store.state.isAdmin = true;
                     }
                 },
                 (err)=>{
