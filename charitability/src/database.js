@@ -18,3 +18,4 @@ export const storageRef = fbApp.storage().ref()
 // create useful endpoints within the database
 export const dataRef = db.ref('data')
 export const donationsRef = db.ref('donations')
+export const reviewsRef = db.ref('reviews')

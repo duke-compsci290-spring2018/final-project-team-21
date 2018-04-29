@@ -2,11 +2,11 @@
     <div id="charityReview">
         <div class="container">
             <div class="row">
-                <div id="singleReview" class="col-sm-4" v-for="charReview in reviewedCharities">
-                    <h3>{{charReview.charityName}}</h3>
+                <div id="singleReview" class="col-sm-4" v-for="charity in reviewedCharities">
+                    <h3>{{charity.charityName}}</h3>
                     <hr>
-                    <div v-for="review in charReview.charityReview">
-                        <p><b>{{currentUser}}: </b>{{review}}</p>
+                    <div v-for="charReview in charity.charityReviews">
+                        <p><b>{{charReview.user}}: </b>{{charReview.review}}</p>
                     </div>
                 </div>
             </div>
@@ -15,18 +15,21 @@
 </template>
 
 <script>
+    import firebase from 'firebase'
+    import { reviewsRef, dataRef } from '../database.js';
     export default {
         name: 'charityReview',
         data () {
             return {
             }
         },
+        firebase: {
+            reviews: reviewsRef,
+            data: dataRef
+        },
         computed:{
             reviewedCharities(){
-                return this.$store.state.reviewedCharities;
-            },
-            currentUser(){
-                return this.$store.state.currentUser;
+                return this.reviews
             }
         }
     }

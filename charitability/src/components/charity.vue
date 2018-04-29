@@ -100,7 +100,7 @@
 
 <script>
 import axios from "axios";
-import { donationsRef,dataRef } from "../database.js";
+import { donationsRef,dataRef,reviewsRef } from "../database.js";
 import firebase from "firebase";
 
     export default { 
@@ -125,7 +125,8 @@ import firebase from "firebase";
         },
         firebase: {
             donations: donationsRef,
-            data: dataRef
+            data: dataRef,
+            reviews: reviewsRef
         },
         computed: {
             //compute the number of pages
@@ -168,7 +169,6 @@ import firebase from "firebase";
                     if (char.mission.toLowerCase().match(this.search.toLowerCase())) {return true}
                     else {return false}
                 });
-                
             },
             filteredCat () {
                 return this.charData.filter((char) => { 
@@ -279,19 +279,26 @@ import firebase from "firebase";
                 }
             },
             submitReview(name){
-                var pushed = false;
+                var charExists = false;
                 var review = document.getElementById("textReview").value;
                 document.getElementById("textReview").value="";
-                for(var place=0; place<this.reviewedCharities.length;place++){
-                    if(this.reviewedCharities[place].charityName===name){
-                        this.$store.state.reviewedCharities[place].charityReview.push(review);
-                        pushed = true;
+                for(var i=0;i<this.reviews.length;i++){
+                    if(this.reviews[i].charityName==name){
+                        charExists=true;
+                        var char = this.reviews[i];
+                        reviewsRef.child(char['.key']).child('charityReviews').push({
+                            user: this.$store.state.currentUser,
+                            review: review
+                        })
                     }
                 }
-                if(!pushed){
-                    this.$store.state.reviewedCharities.push({
+                if(!charExists){
+                    reviewsRef.push({
                         charityName: name,
-                        charityReview: [review]
+                        charityReviews:[{
+                            user: this.$store.state.currentUser,
+                            review: review
+                        }]
                     })
                 }
             }

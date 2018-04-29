@@ -5,9 +5,9 @@
         <div id="leftnav">
             <router-link to='/home'><a id="home">Home</a></router-link>
             <router-link to='/charity' v-if="currentUser"><a id="charities">Charities</a></router-link>
-            <router-link to='/charityReview' v-if="currentUser"><a id="charityReview">CharityReviews</a></router-link>
+            <router-link to='/charityReview' v-if="currentUser"><a id="charityReview">Reviews</a></router-link>
             <router-link to='/admin'><a id="admin" v-if="isAdmin">Admin</a></router-link>
-            <router-link to='/progress'><a id="progress" v-if="currentUser && !isAdmin">Progress</a></router-link>
+            <router-link to='/goals'><a id="progress" v-if="currentUser && !isAdmin">Goals</a></router-link>
         </div>
         <div id="rightnav">
             <router-link to='/profile'><a id="profile" v-if="currentUser && !isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>

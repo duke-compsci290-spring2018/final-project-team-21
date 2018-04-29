@@ -38,7 +38,7 @@ const routes = [
     { path:'/profile', component:profile},
     { path:'/charity', component:charity },
     { path:'/home', component:home },
-    { path:'/progress', component:progress},
+    { path:'/goals', component:progress},
     { path: '/admin', component:admin},
     { path: '/charityReview', component:charityReview}
 ]
