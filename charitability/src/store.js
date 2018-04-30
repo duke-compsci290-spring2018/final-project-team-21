@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
         donationTotal: 0,//storing donation total
         favoriteList: [],//storing favorites
         donatedCharities: [],
-        reviewedCharities: []
+        reviewedCharities: []//storing reviewed charities
     },
     mutations: {
         //set currentUser and userImgUrl, called when page is refreshed

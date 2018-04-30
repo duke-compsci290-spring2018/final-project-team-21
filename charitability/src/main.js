@@ -43,11 +43,13 @@ const routes = [
     { path: '/charityReview', component:charityReview}
 ]
 
+//creation of router
 const router = new VueRouter({
     routes,
     mode: 'history'
 })
 
+//creating vue
 new Vue({
     el: '#app',
     store,

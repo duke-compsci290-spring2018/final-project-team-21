@@ -17,7 +17,9 @@
         <div id="container" class="container">
             <div class="col">
                 <div id="row" class="row">
+<!--                    single charity entry creation-->
                     <div id="singleCharity" class="col-sm-4" v-for="char in pagedData">
+<!--                        add to favorites button-->
                             <button id="favoritesButton" class="btn btn-primary btn-sm" @click="addToFavorites(char.charityName, char.tagLine, char.currentRating.ratingImage.large)">Add to Favorites</button>
                             <img :src="char.category.image" alt="Charity Photo">
                             <h5>{{ char.charityName }}</h5>
@@ -26,6 +28,7 @@
                             <img :src="char.currentRating.ratingImage.large" alt="Charity Rating">
                             <br>
                             <br>
+<!--                        creating the learn more button-->
                             <div id="learnMore">
                                 <button class="btn btn-success" @click="moreInfo(char.cause.image,char.charityName,char.mission,char.charityNavigatorURL,char.cause.causeName,char.currentRating.rating,char.websiteURL)">Learn More</button>
                             </div>
@@ -40,6 +43,7 @@
                                   <hr>
                               </div>
                               <div class="infoBody">
+<!--                                  information in the modal-->
                                   <img :src="charityCauseImgUrl" alt="Charity Cause Image">
                                   <br>
                                   <br>
@@ -62,6 +66,7 @@
                                   <div id="donatedMessage" v-if="showDonatedMessage">
                                       <p>Donated Successfully Inputted</p>
                                 </div>
+<!--                                  writing a review-->
                                   <div id="review">
                                       <h4>Write A Review!</h4>
                                       <textarea id="textReview" placeholder="Write Review Here"></textarea>
@@ -70,6 +75,7 @@
                                 </div>
                               </div>
                               <div class="infoBottom">
+<!--                                  information at the bottom-->
                                   <hr>
                                 <a id="learnMoreLink" :href="charityNavigatorLink">More Info Here</a>
                                   <a id="donateLink" :href="donateLink">Donate Here</a>
@@ -86,6 +92,7 @@
         <!-- navigation to view more pages of charities-->
         <ul class="pageChangeNav">
                     <li>
+<!--                        button for navigation-->
                         <button class="pageChange" :disabled="pageNumber === 0" @click="prevPage">
                             <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
                         </button>
@@ -116,6 +123,7 @@ import firebase from "firebase";
                 pageSize: 12, //number of charities on each page
                 visiblePages: 5, 
                 search: '',
+                //data for the modals
                 charityName: '',
                 charityMission: '',
                 charityCauseImgUrl: '',
@@ -124,10 +132,12 @@ import firebase from "firebase";
                 ratingScore: '',
                 donateLink: '',
                 showDonatedMessage: false,
+                //determine a category
                 category: ''
             }
         },
         firebase: {
+            //determining firebase information
             donations: donationsRef,
             data: dataRef,
             reviews: reviewsRef
@@ -235,12 +245,14 @@ import firebase from "firebase";
                         exists = true;
                     }
                 }
+                //determining if favorite lists exists already or not
                 if(!exists){
                     this.$store.state.favoriteList.push({
                         charityName: name,
                         charityTagLine: tagline,
                         charityRatingImage: image
                     });
+                    //pushing to dataRef for the firebase
                     for(var i=0;i<this.data.length;i++){
                         if(this.data[i].email===this.$store.state.currentUser){
                             var user = this.data[i];
@@ -267,12 +279,14 @@ import firebase from "firebase";
                     charityName: this.charityName,
                     donatedAmount: donatedAmount
                 })
-                this.showDonatedMessage = true;
+                this.showDonatedMessage = true;//determining whether to show donation message
+                //pushing the donations to firebase
                 donationsRef.push({
                     user: this.$store.state.currentUser,
                     charityName: this.charityName,
                     donatedAmount: donatedAmount
                 })
+                //pushing donations to dataRef in firebase
                 for(var i=0;i<this.data.length;i++){
                     if(this.data[i].email===this.$store.state.currentUser){
                         var user = this.data[i];
@@ -293,7 +307,7 @@ import firebase from "firebase";
             },
             //allows user to submit a review on a charity
             submitReview(name){
-                var charExists = false;
+                var charExists = false;//determine if charity exists
                 var review = document.getElementById("textReview").value;
                 document.getElementById("textReview").value="";
                 for(var i=0;i<this.reviews.length;i++){
@@ -306,6 +320,7 @@ import firebase from "firebase";
                         })
                     }
                 }
+                //is charity exists then add to the comments array
                 if(!charExists){
                     reviewsRef.push({
                         charityName: name,
@@ -328,8 +343,7 @@ import firebase from "firebase";
 </script>
 
 <style scoped>
-    #listOfCharities{
-    }
+/*    styling for overall charity div*/
     #charity{
         text-align: center;
     }
@@ -337,6 +351,7 @@ import firebase from "firebase";
         margin: 20px;
         text-align: center;
     }
+/*    styling the page navigation at the bottom of the page*/
     .pageChangeNav{
         margin-right:35px;
         margin-top:30px;
@@ -352,6 +367,7 @@ import firebase from "firebase";
         color: black;
         text-decoration: none;
     }
+/*    styling a single charity entry*/
     #singleCharity{
         border:0.5px solid grey;
         border-radius: 10px;
@@ -373,6 +389,7 @@ import firebase from "firebase";
         float:left;
         margin-left:150px;
     }
+/*    styling search bar*/
     #search{
         display:inline;
         margin-left:250px;
@@ -385,6 +402,7 @@ import firebase from "firebase";
         top:8px; 
         right:8px;
     }
+/*    styling for the modal*/
     /* The modal for learning more about the charity */
     #infoModal {
         display: none;
@@ -426,6 +444,7 @@ import firebase from "firebase";
         padding-top:10px;
         padding-bottom:10px;
     }
+/*    styling learn more link*/
     #learnMoreLink{
         border: 1px solid black;
         padding: 8px 8px 8px 8px;
@@ -435,6 +454,7 @@ import firebase from "firebase";
     #learnMoreLink:hover{
         background-color:lightgrey;
     }
+/*    styling donation links*/
     #donateLink{
         float:right;
         border: 1px solid black;
@@ -446,6 +466,7 @@ import firebase from "firebase";
     #donateLink:hover{
         background-color:dodgerblue;
     }
+/*    styling for text review*/
     #textReview{
         width:450px;
         height:150px;

@@ -5,6 +5,7 @@
             <input class="inputForm" type="text" v-model="email" placeholder="Email"><br>
             <input class="inputForm" type="password" v-model="password" placeholder="Password"><br>
             <button class="btn btn-success" @click="signUp">Sign Up</button><br>
+<!--            Login if you have an account-->
             <span>Have an account? <router-link to="/login"><button id="loginButton" class="btn btn-primary btn-sm">Login</button></router-link></span>
         </div>
 </template>
@@ -17,6 +18,7 @@ export default {
     name: 'signup',
     data() {
         return {
+            //account information
             email: '',
             password: ''
         }
