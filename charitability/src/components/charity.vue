@@ -106,6 +106,18 @@
                         </button>
                     </li>
         </ul>
+        <br>
+        <br>
+        <a v-if="isAdmin" href="https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=900&rated=true&sort=NAME%3AASC">Link to JSON Charities</a>
+        <br>
+        <br>
+        <a v-if="isAdmin" @click="dataShown">Link to JSON Firebase Data</a>
+        <br>
+        <br>
+        <a v-if="isAdmin"@click="reviewsData">Link to JSON Firebase ReviewsData</a>
+        <br>
+        <br>
+        <a v-if="isAdmin" @click="donationsData">Link to JSON Firebase donationsData</a>
     </div>
 </template>
 
@@ -201,6 +213,10 @@ import firebase from "firebase";
             //returns the charities reviewed
             reviewedCharities(){
                 return this.$store.state.reviewedCharities;
+            },
+            //returns true if the current user is an admin
+            isAdmin(){
+                return this.$store.state.isAdmin;
             }
         },
         methods: {
@@ -330,6 +346,19 @@ import firebase from "firebase";
                         }]
                     })
                 }
+            },
+            //three methods to show json data for the users
+            dataShown(){
+                var myWindow = window.open("");
+                myWindow.document.write(JSON.stringify(this.data));
+            },
+            reviewsData(){
+                var myWindow = window.open("");
+                myWindow.document.write(JSON.stringify(this.reviews));
+            },
+            donationsData(){
+                var myWindow = window.open("");
+                myWindow.document.write(JSON.stringify(this.donations));
             }
         },
         //retrieves data from charity navigator api

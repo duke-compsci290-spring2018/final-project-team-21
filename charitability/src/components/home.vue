@@ -52,6 +52,12 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <a v-if="isAdmin" href="https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=4&pageNum=1&rated=true&minRating=3&maxRating=4&scopeOfWork=INTERNATIONAL">Link to JSON for Featured Charities</a>
+        <br>
+        <br>
+        <a v-if="isAdmin" href="https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=24&pageNum=1&rated=true&minRating=4&maxRating=4">Link to JSON for Highest Rated Charities</a>
     </div>
 </template>
 
@@ -84,6 +90,10 @@ import firebase from "firebase";
             //return the current user
             currentUser(){
                return this.$store.state.currentUser;
+            },
+            //returns true if the current user is an admin
+            isAdmin(){
+                return this.$store.state.isAdmin;
             }
         },
         //add a charity to current user's list of favorites

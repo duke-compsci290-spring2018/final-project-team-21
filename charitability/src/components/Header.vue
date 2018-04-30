@@ -4,14 +4,16 @@
     <!-- navigation bar-->
     <div id="navbar">
         <div id="leftnav">
+<!--            navigation to specific links based on roles-->
             <router-link class="routerLink" to='/home'><a id="home">Home</a></router-link>
-            <router-link class="routerLink" to='/charity' v-if="currentUser"><a id="charities">Charities</a></router-link>
-            <router-link class="routerLink" to='/charityReview' v-if="currentUser"><a id="charityReview">Reviews</a></router-link>
-            <router-link class="routerLink" to='/admin'><a id="admin" v-if="isAdmin">Admin</a></router-link>
-            <router-link class="routerLink" to='/goals'><a id="progress" v-if="currentUser && !isAdmin">Goals</a></router-link>
+            <router-link class="routerLink" to='/charity' v-if="currentUser"><span id="charities" v-if="currentUser">Charities</span></router-link>
+            <router-link class="routerLink" to='/charityReview' v-if="currentUser"><span id="charityReview" v-if="currentUser">Reviews</span></router-link>
+            <router-link class="routerLink" to='/admin'><span id="admin" v-if="isAdmin">Admin</span></router-link>
+            <router-link class="routerLink" to='/goals' v-if="currentUser && !isAdmin"><span id="goals" v-if="currentUser && !isAdmin">Goals</span></router-link>
         </div>
         <div id="rightnav">
-            <router-link class="routerLink" to='/profile'><a id="profile" v-if="currentUser && !isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</a></router-link>
+<!--            logging in and profile page-->
+            <router-link class="routerLink" to='/profile' v-if="currentUser && !isAdmin"><span id="profile" v-if="currentUser && !isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</span></router-link>
             <span id="adminprof" v-if="isAdmin"><i class="fa fa-user"></i> {{this.currentUser}}</span>
             <router-link class="routerLink" to="/login"><a id="login" v-if="!currentUser"><i class="fa fa-sign-in"></i> Login </a></router-link>
             <a id="logout" @click="logout" v-if="currentUser"><i class="fa fa-sign-out"></i> Logout</a>
@@ -109,14 +111,14 @@
         background-color: #d3edf8;
         cursor: pointer;
     }
-    #progress{
+    #goals{
         padding-top:12px;
         padding-bottom:12px;
         padding-left:15px;
         padding-right:15px;
         cursor: pointer;
     }
-    #progress:hover{
+    #goals:hover{
         background-color: #d3edf8;
         cursor: pointer;
     }

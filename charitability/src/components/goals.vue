@@ -1,5 +1,5 @@
 <template>
-    <div id="progress">
+    <div id="goals">
         <!-----user goal and progress tracker-->
         <h1 id="title"><b>Goals</b></h1>
         <br>
@@ -48,7 +48,7 @@
 import firebase from 'firebase';
 import { dataRef, donationsRef } from '../database.js';
     export default {
-        name: "progress",
+        name: "goals",
         data () {
             return {
                 none: [],

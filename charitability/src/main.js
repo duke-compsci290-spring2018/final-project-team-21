@@ -17,7 +17,7 @@ import signup from './components/signup.vue'
 import profile from './components/profile.vue'
 import home from './components/home.vue'
 import charity from './components/charity.vue'
-import progress from './components/progress.vue'
+import goals from './components/goals.vue'
 import admin from './components/admin.vue'
 import charityReview from './components/charityReview.vue'
 
@@ -38,7 +38,7 @@ const routes = [
     { path:'/profile', component:profile},
     { path:'/charity', component:charity },
     { path:'/home', component:home },
-    { path:'/goals', component:progress},
+    { path:'/goals', component:goals},
     { path: '/admin', component:admin},
     { path: '/charityReview', component:charityReview}
 ]
