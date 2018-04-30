@@ -8,7 +8,7 @@
             <router-link class="routerLink" to='/home'><a id="home">Home</a></router-link>
             <router-link class="routerLink" to='/charity' v-if="currentUser"><span id="charities" v-if="currentUser">Charities</span></router-link>
             <router-link class="routerLink" to='/charityReview' v-if="currentUser"><span id="charityReview" v-if="currentUser">Reviews</span></router-link>
-            <router-link class="routerLink" to='/admin'><span id="admin" v-if="isAdmin">Admin</span></router-link>
+            <router-link class="routerLink" to='/admin' v-if="isAdmin"><span id="admin" v-if="isAdmin">Admin</span></router-link>
             <router-link class="routerLink" to='/goals' v-if="currentUser && !isAdmin"><span id="goals" v-if="currentUser && !isAdmin">Goals</span></router-link>
         </div>
         <div id="rightnav">
