@@ -30,7 +30,7 @@ Vue.use(VueFire);
 // turn off the console note about switching to production mode
 Vue.config.productionTip = false
 
-
+//routes and url path
 const routes = [
     { path:'/', component:home, props: true},
     { path:'/login', component:login, props: true},

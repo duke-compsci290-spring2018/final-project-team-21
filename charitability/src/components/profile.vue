@@ -5,6 +5,7 @@
             <img id="image" :style="{'max-width': '184px'}" :src="userImage" alt="userPicture">
             <br>
             <br>
+            <!--add profile picture-->
             <div id="changeInfo">
                 <p><b>Change Profile Picture:</b></p>
                 <form id="form" @submit.prevent="storeUserImage">
@@ -12,16 +13,19 @@
                             <input type="submit" value="Add Image" />
                         </form>
                 <br>
+                 <!--change email----------->
                 <p><b>Change Email:</b></p>
                 <input v-model="email" type="text" placeholder="New Email">
                 <input class="submitButton" @click.prevent="updateEmail" type="submit">
                 <br>
                 <br>
+                  <!--change password----------->
                 <p><b>Change Password:</b></p>
                 <input v-model="password" type="text" placeholder="New Password">
                 <input class="submitButton" @click.prevent="updatePassword" type="submit">
                 <br>
                 <br>
+               <!--create or update goal----------->
                 <p><b>Update Goal: </b></p>
                 <p><i>How much money do you want to raise?</i></p>
                 <input v-model="goal"id="goalInput" type="text" placeholder="New Goal">
@@ -42,15 +46,18 @@
         },
         data() {
             return {
+                //user information
                 email: '',
                 password: '',
                 goal: ''
             }
         },
         computed:{
+            //returns current user
            currentUser(){
                return this.$store.state.currentUser;
            },
+            //returns current user's profile picture
             userImage(){
                 return this.$store.state.userImgUrl;
             }
@@ -87,6 +94,7 @@
                 }
                 console.log(this.userImage);
             },
+            //update email address of user
             updateEmail(){
                     var user = firebase.auth().currentUser;
                     var password = ''
@@ -97,9 +105,10 @@
                             email=this.data[i].email
                         }
                     }
+                //reauthenticate user
                     var credential = firebase.auth.EmailAuthProvider.credential(email, password)
                     user.reauthenticateWithCredential(credential);
-                
+                //change email address in firebase authentication
                     user.updateEmail(this.email).then((data) => {
                         console.log("email updated")
                         this.changeEmailInDatabase()
@@ -107,6 +116,7 @@
                         alert("Unable to change email. " + error.message)
                     });
             },
+            //change email address in firebase database
             changeEmailInDatabase(){
                     for(var i=0;i<this.data.length;i++){
                                     if(this.data[i].email===this.currentUser){
@@ -118,6 +128,7 @@
                     alert('Email changed to '+ this.email)
                     this.email=""
                 },
+            //update user's password
             updatePassword(){
                     var user = firebase.auth().currentUser;
                     var password = ''
@@ -128,8 +139,10 @@
                             email=this.data[i].email
                         }
                     }
+                //reauthenticate user
                     var credential = firebase.auth.EmailAuthProvider.credential(email, password)
                     user.reauthenticateWithCredential(credential);
+                //updates password in firebase authentication
                     user.updatePassword(this.password).then((data) => {
                         console.log("password updated")
                         this.changePasswordInDatabase()
@@ -137,6 +150,7 @@
                         alert("Unable to change password. " + error.message)
                     });
             },
+            //change password in firebase database
             changePasswordInDatabase() {
                 for(var i=0;i<this.data.length;i++){
                             if(this.data[i].email===this.currentUser){
@@ -147,6 +161,7 @@
                     alert('Password changed!')
                     this.password=""
             },
+            //allows user to set a donation goal
             submitGoal(){
                 console.log(this.goal);
                 for(var i=0;i<this.data.length;i++){
@@ -162,15 +177,18 @@
 </script>
 
 <style scoped>
+/*  styling for profile picture  */
     #image{
         margin-right:50px;
         margin-top:20px;
     }
+/* styling for profile information   */
     #profileInfo{       
         display:inline;
         margin-left: 55px;
         margin-top: 10px;
     }
+/*  styling for profile div */
     #container{
         margin-top:50px;
         border-left: 1px solid black;
@@ -179,6 +197,7 @@
         margin: 0 auto;
         height: 650px;
     }
+/*  styling for submit button*/
     .submitButton{
         height:32px;
         width: 70px;

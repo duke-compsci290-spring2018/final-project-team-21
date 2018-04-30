@@ -16,6 +16,6 @@ export const db = fbApp.database()
 // global reference to remote storage
 export const storageRef = fbApp.storage().ref()
 // create useful endpoints within the database
-export const dataRef = db.ref('data')
-export const donationsRef = db.ref('donations')
-export const reviewsRef = db.ref('reviews')
+export const dataRef = db.ref('data')//creating data storage in firebase
+export const donationsRef = db.ref('donations')//creating donations storage
+export const reviewsRef = db.ref('reviews')//creating reviews storage in firebase

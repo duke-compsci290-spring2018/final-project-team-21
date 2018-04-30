@@ -1,6 +1,7 @@
 <template>
 <div id="Header">
     <h1>Charitability</h1>
+    <!-- navigation bar-->
     <div id="navbar">
         <div id="leftnav">
             <router-link class="routerLink" to='/home'><a id="home">Home</a></router-link>
@@ -25,9 +26,11 @@
     export default {
         name: "Header",
         computed:{
+            //returns email of current user
            currentUser(){
                return this.$store.state.currentUser;
            },
+            //returns true if the current user is an admin
             isAdmin(){
                 return this.$store.state.isAdmin;
             }
@@ -37,6 +40,7 @@
             }
           },
         methods:{
+            //log user out
             logout(){
                 firebase.auth().signOut().then(()=>{
                 
@@ -54,6 +58,7 @@
         font-size: 50px;
         margin-bottom: 20px;
     }
+    /*styling for each link in header nav */
     #home{
         padding-top:12px;
         padding-bottom:12px;
@@ -143,6 +148,7 @@
         padding-top:5px;
         padding-bottom:5px;
     }
+/*    styling for left nav */
     #leftnav{
         margin-left:20px;
         padding-top:5px;
@@ -150,6 +156,7 @@
         display: inline-block;
         float: left;
     }
+/*    styling for right nav*/
     #rightnav{
         margin-right:20px;
         padding-top:5px;
@@ -157,6 +164,7 @@
         display: inline-block;
         float:right;
     }
+/*    styling for admin nav*/
     #admin{
         padding-top:12px;
         padding-bottom:12px;
@@ -168,6 +176,7 @@
         background-color: #d3edf8;
         cursor: pointer;
     }
+/* styling for router*/
     .routerLink{
         color:black;
         text-decoration: none;
