@@ -1,0 +1,637 @@
+{
+  "data" : {
+    "-LBEhM7CCS1vnpGmiOWm" : {
+      "email" : "admin@admin.com",
+      "password" : "iamadmin",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBFrL0_tXhxP-9Mfvej" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "fufu20@gmail.com",
+      "favorites" : false,
+      "goalAmount" : 0,
+      "password" : "ruifu12345",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBFrjqfJ7hTVEY36U1u" : {
+      "donationTotal" : 0,
+      "donations" : {
+        "-LBFs9Pj0Q8XSq8J0t38" : {
+          "charityName" : "'Aha Punana Leo",
+          "donatedAmount" : 8888
+        }
+      },
+      "email" : "lifeinachelle@gmail.com",
+      "goalAmount" : 0,
+      "password" : "mlml1212",
+      "userImgUrl" : "https://firebasestorage.googleapis.com/v0/b/charitability-94e58.appspot.com/o/images%2F1%20(1).jpg?alt=media&token=72d55d47-c795-43b9-a6a2-37b02597af6a"
+    },
+    "-LBFt2o_JWsop8Y9Vh_2" : {
+      "donationTotal" : 0,
+      "email" : "lifeinach@gmail.com",
+      "favorites" : false,
+      "goalAmount" : 0,
+      "password" : "mlml1212",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBFten9fq_X16uLvzvR" : {
+      "donationTotal" : 0,
+      "email" : "fufu@gmail.com",
+      "goalAmount" : 0,
+      "password" : "ruifu12345",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBFx4BEB5yj3wsw-Thm" : {
+      "donationTotal" : 0,
+      "donations" : {
+        "-LBFx8ujp88Setl_S0aq" : {
+          "charityName" : "\"I Have a Dream\" Foundation",
+          "donatedAmount" : 687
+        }
+      },
+      "email" : "michelle7l@gmail.com",
+      "favorites" : false,
+      "goalAmount" : 0,
+      "password" : "mlml1212",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBFxGZ9jLZO2TE9d-_m" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "chelle@gmail.com",
+      "favorites" : false,
+      "goalAmount" : 0,
+      "password" : "mlml1212",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBFxUpa8XLrvmKiqmY_" : {
+      "donationTotal" : 35030,
+      "donations" : {
+        "-LBFx_ee1uWwlxS_xONy" : {
+          "charityName" : "1000 Friends of Oregon",
+          "donatedAmount" : 999
+        },
+        "-LBG1wD85Di_Wf-ryMwc" : {
+          "charityName" : "10,000 Degrees",
+          "donatedAmount" : 444
+        },
+        "-LBG2ATgNu_9ZclqGIF5" : {
+          "charityName" : "'Aha Punana Leo",
+          "donatedAmount" : 243
+        },
+        "-LBG2FvHVzdFIx4bGm-1" : {
+          "charityName" : "10,000 Degrees",
+          "donatedAmount" : 34343
+        }
+      },
+      "email" : "le@gmail.com",
+      "favorites" : {
+        "-LBFxZPCUJ7u71z0MKwV" : {
+          "charityName" : "4 Paws for Ability ",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Providing service dogs to children and veterans worldwide"
+        },
+        "-LBG0-9ZBsSxmoDQltYV" : {
+          "charityName" : "The Jackson Laboratory",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Leading the search for tomorrow's cures"
+        },
+        "-LBG00xbjOMZBaIGZ2Hc" : {
+          "charityName" : "Iranian American Jewish Federation of New York",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Promote unity in our Jewish community."
+        },
+        "-LBG02zMvKORxaRW_ZoA" : {
+          "charityName" : "Akshaya Patra USA",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Unlimited Food for Education"
+        },
+        "-LBG04OkOWsjp83JhisF" : {
+          "charityName" : "StandWithUs",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Supporting Israel Around the World"
+        }
+      },
+      "goalAmount" : "4000000",
+      "password" : "mlml1212",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBFxZd5FGVohhepBqd9" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "fufu12@gmail.com",
+      "favorites" : {
+        "-LBGDPZmDOjQW2EHF90B" : {
+          "charityName" : "Akshaya Patra USA",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Unlimited Food for Education"
+        }
+      },
+      "goalAmount" : 0,
+      "password" : "ruifu12",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBI0ufWiPsluLoisxOH" : {
+      "donationTotal" : 50,
+      "donations" : {
+        "-LBI19HDvebb3fihsx_w" : {
+          "charityName" : "10,000 Degrees",
+          "donatedAmount" : 50
+        }
+      },
+      "email" : "paul@gmail.com",
+      "favorites" : {
+        "-LBI1CORMtYNxeVBCA5q" : {
+          "charityName" : "24 Foundation",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/3stars.png",
+          "charityTagLine" : "A movement to fund cancer survivorship and navigation programs"
+        },
+        "-LBI1DWLlG12IagXBZJX" : {
+          "charityName" : "StandWithUs",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Supporting Israel Around the World"
+        }
+      },
+      "goalAmount" : "300",
+      "password" : "mlml1212",
+      "userImgUrl" : "https://firebasestorage.googleapis.com/v0/b/charitability-94e58.appspot.com/o/images%2F5BD1F4E5-9993-482F-88A6-4E1841621006.JPG?alt=media&token=3244d6d9-1bab-4bdd-b6a5-f7641b64db99"
+    },
+    "-LBIQ_k6IzNlBOMGx-48" : {
+      "donationTotal" : 192,
+      "donations" : {
+        "-LBIS0jTknZ_5y1tSCfa" : {
+          "charityName" : "'Aha Punana Leo",
+          "donatedAmount" : 50
+        },
+        "-LBIaDrdgwv6nKhikCyH" : {
+          "charityName" : "Acadia Center",
+          "donatedAmount" : 75
+        },
+        "-LBKh9mKq3S1jKiwS6QN" : {
+          "charityName" : "Acadia Center",
+          "donatedAmount" : 60
+        },
+        "-LBMAdpyQWQ0RFZjaFUV" : {
+          "charityName" : "Acadia Center",
+          "donatedAmount" : 7
+        }
+      },
+      "email" : "fufu123@gmail.com",
+      "favorites" : {
+        "-LBIa4z0JPBMh2LvAj4C" : {
+          "charityName" : "Akshaya Patra USA",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Unlimited Food for Education"
+        },
+        "-LBIa57kMCksQNC3AraY" : {
+          "charityName" : "StandWithUs",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Supporting Israel Around the World"
+        },
+        "-LBIa5QFVRtiYfdzxplt" : {
+          "charityName" : "Boys & Girls Clubs of Southern Maine",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Great Futures Start Here"
+        },
+        "-LBIa5VtBzvDHSxVmuvT" : {
+          "charityName" : "Pine Tree Society",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Discovering abilities together"
+        },
+        "-LBIa7jxsOlfC1r7r3kR" : {
+          "charityName" : "Acadia Center",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Advancing the Clean Energy Future"
+        },
+        "-LBIaPAipdySEr55ZRaI" : {
+          "charityName" : "'Aha Punana Leo",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/3stars.png",
+          "charityTagLine" : "The Hawaiian Language Shall Live"
+        },
+        "-LBIaQ3CwWAJkhsB8AIC" : {
+          "charityName" : "StandWithUs",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Supporting Israel Around the World"
+        },
+        "-LBJWvsXAxJL0RTJ2og6" : {
+          "charityName" : "Akshaya Patra USA",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Unlimited Food for Education"
+        },
+        "-LBKgjsnfFs6dFHkwPCQ" : {
+          "charityName" : "Acadia Center",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Advancing the Clean Energy Future"
+        },
+        "-LBKgkUvX20l8QbtImo8" : {
+          "charityName" : "Florida Breast Cancer Foundation",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Ending breast cancer through advocacy, education, and research"
+        },
+        "-LBMA5ZL3THEkF0xd6kK" : {
+          "charityName" : "Acadia Center",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Advancing the Clean Energy Future"
+        },
+        "-LBMA6CwXrBYnveAO55g" : {
+          "charityName" : "Safe Passage",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Hope, education, opportunity"
+        }
+      },
+      "goalAmount" : "1000",
+      "password" : "ruifu123",
+      "userImgUrl" : "https://firebasestorage.googleapis.com/v0/b/charitability-94e58.appspot.com/o/images%2F13083378_1757582807809131_416315536794183118_n.jpg?alt=media&token=c46734c2-e36c-48db-bbf0-dc1ed4945cf2"
+    },
+    "-LBIptscXfCp3VEXummg" : {
+      "donationTotal" : 4,
+      "donations" : {
+        "-LBIq6bvF4Im_lKrJyck" : {
+          "charityName" : "\"I Have a Dream\" Foundation",
+          "donatedAmount" : 4
+        }
+      },
+      "email" : "brian@rena.com",
+      "goalAmount" : "5",
+      "password" : "mlml1212",
+      "userImgUrl" : "https://firebasestorage.googleapis.com/v0/b/charitability-94e58.appspot.com/o/images%2FDSC_0121.JPG?alt=media&token=ccba590c-569e-40e4-875d-28fd0d6ba3ce"
+    },
+    "-LBJi9YFPW4FIq8oJbr4" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "Adolf_Hitler@gmail.com",
+      "favorites" : false,
+      "goalAmount" : 0,
+      "password" : "MeinKampf",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBJranNiysYSgvp7Dw5" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "bill@bill.bill",
+      "favorites" : {
+        "-LBJs64PuVn54KPJCipN" : {
+          "charityName" : "Alliance Defending Freedom",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Defending our first liberty"
+        }
+      },
+      "goalAmount" : "one million",
+      "password" : "six characters",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBK4JEdGJXZWUAozxNz" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "123@gmail.com",
+      "favorites" : false,
+      "goalAmount" : 0,
+      "password" : "123456",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBKhRW8TiKBlI1GlLLh" : {
+      "donationTotal" : 7,
+      "donations" : {
+        "-LBKhlgMm7_3SVaYnogz" : {
+          "charityName" : "350.org",
+          "donatedAmount" : 3
+        },
+        "-LBKhn-Vb8U7BqBzzRBw" : {
+          "charityName" : "A Better Chance",
+          "donatedAmount" : 4
+        }
+      },
+      "email" : "ruiandmich@gmail.com",
+      "favorites" : {
+        "-LBKhSbmm36yRDMaf4bU" : {
+          "charityName" : "Pine Tree Society",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Discovering abilities together"
+        },
+        "-LBKhSjhUwKS5T_BbnYk" : {
+          "charityName" : "Maine Seacoast Mission",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Transforming lives across Downeast Maine"
+        },
+        "-LBKhSrD5v49Qrl5yJpw" : {
+          "charityName" : "Boothbay Region YMCA",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Strengthening the Foundations of the Boothbay Region Community"
+        },
+        "-LBKhT3ukgaEbX1tYAdn" : {
+          "charityName" : "The Jackson Laboratory",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Leading the search for tomorrow's cures"
+        },
+        "-LBKhTDJmLavZP_KcneZ" : {
+          "charityName" : "Mount Desert Island Biological Laboratory",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Connecting Science, Environment, and Health"
+        },
+        "-LBKhT_nSLOPIMjj31Q1" : {
+          "charityName" : "National Medical Fellowships",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Changing the face of medicine"
+        },
+        "-LBKhTic_rJyBN0g94_N" : {
+          "charityName" : "Bigelow Laboratory for Ocean Sciences",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Blue Biotechnology, Ocean Biogeochemistry and Climate Change, and Ocean Health"
+        },
+        "-LBKhTsNVvekGIhccmwl" : {
+          "charityName" : "Furkids",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Georgia's Largest Animal Rescue and No-Kill Shelters"
+        }
+      },
+      "goalAmount" : "30",
+      "password" : "ruiandmich",
+      "userImgUrl" : "https://firebasestorage.googleapis.com/v0/b/charitability-94e58.appspot.com/o/images%2F21231265_2004176436483099_4511312110607823978_n.jpg?alt=media&token=3a6817bb-6faa-4762-a691-844b65dc3489"
+    },
+    "-LBLFjtVMJh0Cz_pZ4CH" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "123@45.com",
+      "favorites" : {
+        "-LBLFyRLGRFMza_bIKyp" : {
+          "charityName" : "'Aha Punana Leo",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/3stars.png",
+          "charityTagLine" : "The Hawaiian Language Shall Live"
+        },
+        "-LBLG78PhQg_5jcOLec9" : {
+          "charityName" : "Boys & Girls Clubs of Southern Maine",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Great Futures Start Here"
+        }
+      },
+      "goalAmount" : 0,
+      "password" : "12345678",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBMmxyWWeB2Ibqy-9wE" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "tayl@lajdks.com",
+      "favorites" : {
+        "-LBMn0HsFiZ3gpwcZWL3" : {
+          "charityName" : "Akshaya Patra USA",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Unlimited Food for Education"
+        }
+      },
+      "goalAmount" : 0,
+      "password" : "password",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    },
+    "-LBMzgDU14w0uQa8kRLu" : {
+      "donationTotal" : 0,
+      "donations" : false,
+      "email" : "fds@gmail.com",
+      "favorites" : {
+        "-LBMzhnN7zhTsXIb3AeD" : {
+          "charityName" : "Safe Passage",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Hope, education, opportunity"
+        },
+        "-LBMzib7u6b5XQRsN4ee" : {
+          "charityName" : "Safe Passage",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Hope, education, opportunity"
+        },
+        "-LBMzk5rCaKfdXMWXuJz" : {
+          "charityName" : "Safe Passage",
+          "charityRatingImage" : "https://d20umu42aunjpx.cloudfront.net/_gfx_/icons/stars/4stars.png",
+          "charityTagLine" : "Hope, education, opportunity"
+        }
+      },
+      "goalAmount" : 0,
+      "password" : "fdsfds",
+      "userImgUrl" : "http://www.styletextile.com/wp-content/uploads/2017/10/profile.jpg"
+    }
+  },
+  "donations" : {
+    "-LBFMZqobzw0lLiB0KMQ" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 20,
+      "user" : "lifeinachellee@gmail.com"
+    },
+    "-LBFa1DZXg2ya9XpVIdr" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 12,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFaHN6eZXA66o0AyrF" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 12,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFaOdu3CAxjQmu2c_i" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 12323,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFaps0aUED90j5b-Rh" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 77,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFb56DpVXTDI5oXQVL" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 777,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFbLvNu3IWZVjZvH67" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 777777,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFbcZfty2wZf8X-p7-" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 888,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFd3KuqbDsT0OPgKk7" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 7777,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFd5H00BfYZgqymFFm" : {
+      "charityName" : "'Aha Punana Leo",
+      "donatedAmount" : 777,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFf9_7f-g9yZq51c03" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 12,
+      "user" : "lifeinachell@gmail.com"
+    },
+    "-LBFs9Pior5tW1tRtIaa" : {
+      "charityName" : "'Aha Punana Leo",
+      "donatedAmount" : 8888,
+      "user" : "lifeinachelle@gmail.com"
+    },
+    "-LBFt5ancZJQZjky2YtC" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 888,
+      "user" : "lifeinach@gmail.com"
+    },
+    "-LBFthrXTS64Emtp6BO3" : {
+      "charityName" : "'Aha Punana Leo",
+      "donatedAmount" : 50,
+      "user" : "fufu@gmail.com"
+    },
+    "-LBFx8uiUR_GV0Kp9OCT" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 687,
+      "user" : "michelle7l@gmail.com"
+    },
+    "-LBFx_ed52nC-Wiqg3Qp" : {
+      "charityName" : "1000 Friends of Oregon",
+      "donatedAmount" : 999,
+      "user" : "le@gmail.com"
+    },
+    "-LBG1wD3EI17OAjPL-Fg" : {
+      "charityName" : "10,000 Degrees",
+      "donatedAmount" : 444,
+      "user" : "le@gmail.com"
+    },
+    "-LBG2ATekNnnQy7LgZ47" : {
+      "charityName" : "'Aha Punana Leo",
+      "donatedAmount" : 243,
+      "user" : "le@gmail.com"
+    },
+    "-LBG2FvBpuerzznLr9AW" : {
+      "charityName" : "10,000 Degrees",
+      "donatedAmount" : 34343,
+      "user" : "le@gmail.com"
+    },
+    "-LBI19H6mBmIw0V2dIP5" : {
+      "charityName" : "10,000 Degrees",
+      "donatedAmount" : 50,
+      "user" : "paul@gmail.com"
+    },
+    "-LBIS0jQMRYptj3QUJQf" : {
+      "charityName" : "'Aha Punana Leo",
+      "donatedAmount" : 50,
+      "user" : "fufu123@gmail.com"
+    },
+    "-LBIaDra1wtvVi6931T8" : {
+      "charityName" : "Acadia Center",
+      "donatedAmount" : 75,
+      "user" : "fufu123@gmail.com"
+    },
+    "-LBIq6bq9qG66Qdvi2N8" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "donatedAmount" : 4,
+      "user" : "brian@rena.com"
+    },
+    "-LBKh9mFqYja7nx6MFjI" : {
+      "charityName" : "Acadia Center",
+      "donatedAmount" : 60,
+      "user" : "fufu123@gmail.com"
+    },
+    "-LBKhlgKY6_lVZdm3Y10" : {
+      "charityName" : "350.org",
+      "donatedAmount" : 3,
+      "user" : "ruiandmich@gmail.com"
+    },
+    "-LBKhn-SCIWZYinSOBZQ" : {
+      "charityName" : "A Better Chance",
+      "donatedAmount" : 4,
+      "user" : "ruiandmich@gmail.com"
+    },
+    "-LBMAdpo60X0_CdmzivP" : {
+      "charityName" : "Acadia Center",
+      "donatedAmount" : 7,
+      "user" : "fufu123@gmail.com"
+    }
+  },
+  "reviews" : {
+    "-LBI_r0QuscQ1RnuKNoQ" : {
+      "charityName" : "'Aha Punana Leo",
+      "charityReviews" : {
+        "0" : {
+          "review" : "GOOD CHARITY! DONATED 5 dollars",
+          "user" : "fufu123@gmail.com"
+        },
+        "-LBI_zvzXW9SqT1jHX4Q" : {
+          "review" : "ITS OKAY",
+          "user" : "fufu123@gmail.com"
+        }
+      }
+    },
+    "-LBI_sR_ra18uhsxy5z-" : {
+      "charityName" : "1000 Friends of Florida",
+      "charityReviews" : [ {
+        "review" : "suckss",
+        "user" : "fufu123@gmail.com"
+      } ]
+    },
+    "-LBI_uGRf1ptsHdvR3hH" : {
+      "charityName" : "9to5 National Association of Working Women",
+      "charityReviews" : [ {
+        "review" : "OKAYISH",
+        "user" : "fufu123@gmail.com"
+      } ]
+    },
+    "-LBI_vfNKcAmi_R6QK1m" : {
+      "charityName" : "1000 Friends of Oregon",
+      "charityReviews" : [ {
+        "review" : "UNDERRATED",
+        "user" : "fufu123@gmail.com"
+      } ]
+    },
+    "-LBIaEWkE-LdsJCgK2DN" : {
+      "charityName" : "Acadia Center",
+      "charityReviews" : {
+        "0" : {
+          "review" : "its fine",
+          "user" : "fufu123@gmail.com"
+        },
+        "-LBKhC8b6JB85TaWMQIU" : {
+          "review" : "Overall great charity",
+          "user" : "fufu123@gmail.com"
+        },
+        "-LBMAkSZ7uVeAyGOFDDn" : {
+          "review" : "Was no really good",
+          "user" : "fufu123@gmail.com"
+        }
+      }
+    },
+    "-LBIq8ny63dA6_FGaA_w" : {
+      "charityName" : "\"I Have a Dream\" Foundation",
+      "charityReviews" : {
+        "0" : {
+          "review" : "this place is cool",
+          "user" : "brian@rena.com"
+        },
+        "-LBIq8v8CdtAXZsyl4tL" : {
+          "review" : "",
+          "user" : "brian@rena.com"
+        }
+      }
+    },
+    "-LBJiWNKKPKwPIEm6zhH" : {
+      "charityName" : "A Jewish Voice for Peace",
+      "charityReviews" : [ {
+        "review" : "Bigots should die",
+        "user" : "adolf_hitler@gmail.com"
+      } ]
+    },
+    "-LBKhlJMaQu-0hL5E_y5" : {
+      "charityName" : "350.org",
+      "charityReviews" : [ {
+        "review" : "Great Awesome JOB!",
+        "user" : "ruiandmich@gmail.com"
+      } ]
+    },
+    "-LBKhnn9dPRmxdCozk5E" : {
+      "charityName" : "A Better Chance",
+      "charityReviews" : [ {
+        "review" : "YESSS",
+        "user" : "ruiandmich@gmail.com"
+      } ]
+    }
+  }
+}
