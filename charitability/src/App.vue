@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+<!--      putting in the Header-->
       <Header></Header>
       <router-view></router-view>
   </div>
@@ -19,6 +20,7 @@
 export default {
     name: 'app', 
     computed:{
+        //returns the current user's email
         currentUser(){
             return this.$store.state.currentUser;
         }
@@ -32,12 +34,14 @@ export default {
         }
     },
     components:{
+        //putting in the components
         Header,
         profile,
         home,
         login
     },
     created () {
+        // when the page is reloaded, the user will still be logged in
         firebase.auth().onAuthStateChanged((firebaseUser) => {
           if (firebaseUser) {
               this.$store.dispatch('autoSignIn',firebaseUser)
@@ -49,6 +53,7 @@ export default {
 </script>
 
 <style scoped>
+/*    formatting for the page - took from webpack creation*/
     #app {
       font-family: 'Avenir', Helvetica, Arial, sans-serif;
       text-align: center;

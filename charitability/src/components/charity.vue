@@ -1,15 +1,18 @@
 <template>
     <div id="charity">
         <div id="searchArea">
+            <!--search categories-->
             <div id="filter">
                 <b>Category:</b>
                 <input id="searchBar" type="text" v-model="category" placeholder="Enter a category">
             </div>
+            <!--search charity names and missions-->
             <div id="search">
                 <b>Search:</b>
                 <input id="searchBar" type="text" v-model="search" placeholder="Enter a name or key word">
             </div>
         </div>
+        <!--charities-->
         <div id="listOfCharities">
         <div id="container" class="container">
             <div class="col">
@@ -80,6 +83,7 @@
             </div>
         </div>
         </div>
+        <!-- navigation to view more pages of charities-->
         <ul class="pageChangeNav">
                     <li>
                         <button class="pageChange" :disabled="pageNumber === 0" @click="prevPage">
@@ -102,16 +106,15 @@
 import axios from "axios";
 import { donationsRef,dataRef,reviewsRef } from "../database.js";
 import firebase from "firebase";
-import { API_ID, API_KEY } from '../secrets.js';
 
     export default { 
         name: 'charity',
         data () {
             return {
-                charData: [],
-                pageNumber: 0,
-                pageSize: 12,
-                visiblePages: 5,
+                charData: [], //charity data from api
+                pageNumber: 0, 
+                pageSize: 12, //number of charities on each page
+                visiblePages: 5, 
                 search: '',
                 charityName: '',
                 charityMission: '',
@@ -151,6 +154,7 @@ import { API_ID, API_KEY } from '../secrets.js';
                 }
                 return this.filteredChar.slice(start, end);
             },
+            //number of pages
             pageRange () {
                 let start = this.pageNumber - this.visiblePages / 2 <= 0
                 ? 1 : this.currentPage + this.visiblePages / 2 > this.lastPage
@@ -164,6 +168,7 @@ import { API_ID, API_KEY } from '../secrets.js';
                 }
                 return range
             },
+            //charities filtered by name and mission
             filteredChar () {
                 return this.charData.filter((char) => { 
                     if (char.charityName.toLowerCase().match(this.search.toLowerCase())) {return true}
@@ -171,6 +176,7 @@ import { API_ID, API_KEY } from '../secrets.js';
                     else {return false}
                 });
             },
+            //charities filtered by category
             filteredCat () {
                 return this.charData.filter((char) => { 
                     if (char.category.categoryName.toLowerCase().match(this.category.toLowerCase())) {return true}
@@ -178,9 +184,11 @@ import { API_ID, API_KEY } from '../secrets.js';
                 });
                 
             },
+            //returns the list of favorites
             favoriteList(){
                 return this.$store.state.favoriteList;
             },
+            //returns the charities reviewed
             reviewedCharities(){
                 return this.$store.state.reviewedCharities;
             }
@@ -201,6 +209,7 @@ import { API_ID, API_KEY } from '../secrets.js';
             activePage (page) {
                 return this.pageNumber === page ? 'active' : '';
             },
+            //opens modal with more information on charity
             moreInfo(imageUrl, name, mission, link, cause, ratingScore, donateLink){
                 var modal = document.getElementById('infoModal');
                 modal.style.display = "block";
@@ -212,11 +221,13 @@ import { API_ID, API_KEY } from '../secrets.js';
                 this.ratingScore = ratingScore;
                 this.donateLink = donateLink;
             },
+            //closes modal
             closeInfo(){
                 var modal = document.getElementById('infoModal');
                 modal.style.display = "none";
                 this.showDonatedMessage = false;
             },
+            //add a charity to current user's list of favorites
             addToFavorites(name, tagline, image){
                 var exists = false;
                 for(var place=0; place<this.favoriteList.length; place++){
@@ -248,6 +259,7 @@ import { API_ID, API_KEY } from '../secrets.js';
                     }
                 }
             },
+            //allows user to submit donation amount
             submitDonation(){
                 var donatedAmount = parseInt(document.getElementById("amountDonated").value);
                 document.getElementById("amountDonated").value="";
@@ -279,6 +291,7 @@ import { API_ID, API_KEY } from '../secrets.js';
                     }
                 }
             },
+            //allows user to submit a review on a charity
             submitReview(name){
                 var charExists = false;
                 var review = document.getElementById("textReview").value;
@@ -304,9 +317,10 @@ import { API_ID, API_KEY } from '../secrets.js';
                 }
             }
         },
+        //retrieves data from charity navigator api
         mounted () {
             axios
-                .get('https://api.data.charitynavigator.org/v2/Organizations?app_id=' + API_ID + '&app_key=' + API_KEY + '&pageSize=900&rated=true&sort=NAME%3AASC')
+                .get('https://api.data.charitynavigator.org/v2/Organizations?app_id=d1095a51&app_key=61c19ae8a70b9bfdf6f1fe21d0f4b244&pageSize=900&rated=true&sort=NAME%3AASC')
                 .then(response => (this.charData = response.data))
                 .catch(error => console.log(error))
         }
